@@ -30,7 +30,7 @@ const Icon = ({
 );
 
 Icon.defaultProps = {
-  color: Colors.blueDark,
+  color: Colors.greenDark,
   iconSize: 50,
   outline: true,
 };

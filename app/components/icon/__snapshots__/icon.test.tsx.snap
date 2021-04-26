@@ -19,7 +19,7 @@ exports[`Icon Component rendered correctly About Focused Icon 1`] = `
     style={
       Array [
         Object {
-          "color": "#0f348e",
+          "color": "#388049",
           "fontSize": 50,
         },
         undefined,
@@ -56,7 +56,7 @@ exports[`Icon Component rendered correctly About Icon 1`] = `
     style={
       Array [
         Object {
-          "color": "#0f348e",
+          "color": "#388049",
           "fontSize": 50,
         },
         undefined,
@@ -74,7 +74,7 @@ exports[`Icon Component rendered correctly About Icon 1`] = `
 </View>
 `;
 
-exports[`Icon Component rendered correctly Backspace Icon 1`] = `
+exports[`Icon Component rendered correctly tab Four Focused Icon 1`] = `
 <View
   style={
     Array [
@@ -93,7 +93,7 @@ exports[`Icon Component rendered correctly Backspace Icon 1`] = `
     style={
       Array [
         Object {
-          "color": "#0f348e",
+          "color": "#388049",
           "fontSize": 50,
         },
         undefined,
@@ -106,12 +106,12 @@ exports[`Icon Component rendered correctly Backspace Icon 1`] = `
       ]
     }
   >
-    
+    
   </Text>
 </View>
 `;
 
-exports[`Icon Component rendered correctly Minus Icon 1`] = `
+exports[`Icon Component rendered correctly tab Four Icon 1`] = `
 <View
   style={
     Array [
@@ -130,7 +130,7 @@ exports[`Icon Component rendered correctly Minus Icon 1`] = `
     style={
       Array [
         Object {
-          "color": "#0f348e",
+          "color": "#388049",
           "fontSize": 50,
         },
         undefined,
@@ -143,12 +143,12 @@ exports[`Icon Component rendered correctly Minus Icon 1`] = `
       ]
     }
   >
-    
+    
   </Text>
 </View>
 `;
 
-exports[`Icon Component rendered correctly Plus Icon 1`] = `
+exports[`Icon Component rendered correctly tab One Focused Icon 1`] = `
 <View
   style={
     Array [
@@ -167,7 +167,7 @@ exports[`Icon Component rendered correctly Plus Icon 1`] = `
     style={
       Array [
         Object {
-          "color": "#0f348e",
+          "color": "#388049",
           "fontSize": 50,
         },
         undefined,
@@ -180,12 +180,12 @@ exports[`Icon Component rendered correctly Plus Icon 1`] = `
       ]
     }
   >
-    
+    
   </Text>
 </View>
 `;
 
-exports[`Icon Component rendered correctly Task Four Focused Icon 1`] = `
+exports[`Icon Component rendered correctly tab One Icon 1`] = `
 <View
   style={
     Array [
@@ -204,7 +204,7 @@ exports[`Icon Component rendered correctly Task Four Focused Icon 1`] = `
     style={
       Array [
         Object {
-          "color": "#0f348e",
+          "color": "#388049",
           "fontSize": 50,
         },
         undefined,
@@ -217,12 +217,12 @@ exports[`Icon Component rendered correctly Task Four Focused Icon 1`] = `
       ]
     }
   >
-    
+    
   </Text>
 </View>
 `;
 
-exports[`Icon Component rendered correctly Task Four Icon 1`] = `
+exports[`Icon Component rendered correctly tab Three Focused Icon 1`] = `
 <View
   style={
     Array [
@@ -241,7 +241,7 @@ exports[`Icon Component rendered correctly Task Four Icon 1`] = `
     style={
       Array [
         Object {
-          "color": "#0f348e",
+          "color": "#388049",
           "fontSize": 50,
         },
         undefined,
@@ -254,12 +254,12 @@ exports[`Icon Component rendered correctly Task Four Icon 1`] = `
       ]
     }
   >
-    
+    
   </Text>
 </View>
 `;
 
-exports[`Icon Component rendered correctly Task One Focused Icon 1`] = `
+exports[`Icon Component rendered correctly tab Three Icon 1`] = `
 <View
   style={
     Array [
@@ -278,7 +278,7 @@ exports[`Icon Component rendered correctly Task One Focused Icon 1`] = `
     style={
       Array [
         Object {
-          "color": "#0f348e",
+          "color": "#388049",
           "fontSize": 50,
         },
         undefined,
@@ -291,12 +291,12 @@ exports[`Icon Component rendered correctly Task One Focused Icon 1`] = `
       ]
     }
   >
-    
+    
   </Text>
 </View>
 `;
 
-exports[`Icon Component rendered correctly Task One Icon 1`] = `
+exports[`Icon Component rendered correctly tab Two Focused Icon 1`] = `
 <View
   style={
     Array [
@@ -315,7 +315,7 @@ exports[`Icon Component rendered correctly Task One Icon 1`] = `
     style={
       Array [
         Object {
-          "color": "#0f348e",
+          "color": "#388049",
           "fontSize": 50,
         },
         undefined,
@@ -328,12 +328,12 @@ exports[`Icon Component rendered correctly Task One Icon 1`] = `
       ]
     }
   >
-    
+    
   </Text>
 </View>
 `;
 
-exports[`Icon Component rendered correctly Task Three Focused Icon 1`] = `
+exports[`Icon Component rendered correctly tab Two Icon 1`] = `
 <View
   style={
     Array [
@@ -352,7 +352,7 @@ exports[`Icon Component rendered correctly Task Three Focused Icon 1`] = `
     style={
       Array [
         Object {
-          "color": "#0f348e",
+          "color": "#388049",
           "fontSize": 50,
         },
         undefined,
@@ -365,118 +365,7 @@ exports[`Icon Component rendered correctly Task Three Focused Icon 1`] = `
       ]
     }
   >
-    
-  </Text>
-</View>
-`;
-
-exports[`Icon Component rendered correctly Task Three Icon 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "overflow": "hidden",
-      },
-      Object {
-        "alignItems": "center",
-        "justifyContent": "center",
-      },
-    ]
-  }
->
-  <Text
-    allowFontScaling={false}
-    style={
-      Array [
-        Object {
-          "color": "#0f348e",
-          "fontSize": 50,
-        },
-        undefined,
-        Object {
-          "fontFamily": "Ionicons",
-          "fontStyle": "normal",
-          "fontWeight": "normal",
-        },
-        Object {},
-      ]
-    }
-  >
-    
-  </Text>
-</View>
-`;
-
-exports[`Icon Component rendered correctly Task Two Focused Icon 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "overflow": "hidden",
-      },
-      Object {
-        "alignItems": "center",
-        "justifyContent": "center",
-      },
-    ]
-  }
->
-  <Text
-    allowFontScaling={false}
-    style={
-      Array [
-        Object {
-          "color": "#0f348e",
-          "fontSize": 50,
-        },
-        undefined,
-        Object {
-          "fontFamily": "Ionicons",
-          "fontStyle": "normal",
-          "fontWeight": "normal",
-        },
-        Object {},
-      ]
-    }
-  >
-    
-  </Text>
-</View>
-`;
-
-exports[`Icon Component rendered correctly Task Two Icon 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "overflow": "hidden",
-      },
-      Object {
-        "alignItems": "center",
-        "justifyContent": "center",
-      },
-    ]
-  }
->
-  <Text
-    allowFontScaling={false}
-    style={
-      Array [
-        Object {
-          "color": "#0f348e",
-          "fontSize": 50,
-        },
-        undefined,
-        Object {
-          "fontFamily": "Ionicons",
-          "fontStyle": "normal",
-          "fontWeight": "normal",
-        },
-        Object {},
-      ]
-    }
-  >
-    
+    
   </Text>
 </View>
 `;
