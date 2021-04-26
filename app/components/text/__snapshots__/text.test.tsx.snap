@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text Component rendered correctly Bold Text 1`] = `
+<Text
+  allowFontScaling={false}
+  numberOfLines={0}
+  style={
+    Object {
+      "color": "#323030",
+      "fontFamily": "Avenir-Heavy",
+      "fontSize": 36,
+      "fontWeight": "700",
+    }
+  }
+>
+  Bold Text
+</Text>
+`;
+
+exports[`Text Component rendered correctly L Text Size 1`] = `
+<Text
+  allowFontScaling={false}
+  numberOfLines={0}
+  style={
+    Object {
+      "color": "#323030",
+      "fontFamily": "Avenir",
+      "fontSize": 44,
+      "fontWeight": "400",
+    }
+  }
+>
+  L Text
+</Text>
+`;
+
+exports[`Text Component rendered correctly M Text Size 1`] = `
+<Text
+  allowFontScaling={false}
+  numberOfLines={0}
+  style={
+    Object {
+      "color": "#323030",
+      "fontFamily": "Avenir",
+      "fontSize": 36,
+      "fontWeight": "400",
+    }
+  }
+>
+  M Text
+</Text>
+`;
+
+exports[`Text Component rendered correctly No Size Defined 1`] = `
+<Text
+  allowFontScaling={false}
+  numberOfLines={0}
+  style={
+    Object {
+      "color": "#323030",
+      "fontFamily": "Avenir",
+      "fontSize": 36,
+      "fontWeight": "400",
+    }
+  }
+>
+  No Size Defined Text
+</Text>
+`;
+
+exports[`Text Component rendered correctly S Text Size 1`] = `
+<Text
+  allowFontScaling={false}
+  numberOfLines={0}
+  style={
+    Object {
+      "color": "#323030",
+      "fontFamily": "Avenir",
+      "fontSize": 32,
+      "fontWeight": "400",
+    }
+  }
+>
+  S Text
+</Text>
+`;
+
+exports[`Text Component rendered correctly XL Text Size 1`] = `
+<Text
+  allowFontScaling={false}
+  numberOfLines={0}
+  style={
+    Object {
+      "color": "#323030",
+      "fontFamily": "Avenir",
+      "fontSize": 52,
+      "fontWeight": "400",
+    }
+  }
+>
+  XL Text
+</Text>
+`;
+
+exports[`Text Component rendered correctly XS Text Size 1`] = `
+<Text
+  allowFontScaling={false}
+  numberOfLines={0}
+  style={
+    Object {
+      "color": "#323030",
+      "fontFamily": "Avenir",
+      "fontSize": 28,
+      "fontWeight": "400",
+    }
+  }
+>
+  XS Text
+</Text>
+`;
+
+exports[`Text Component rendered correctly XXL Text Size 1`] = `
+<Text
+  allowFontScaling={false}
+  numberOfLines={0}
+  style={
+    Object {
+      "color": "#323030",
+      "fontFamily": "Avenir",
+      "fontSize": 72,
+      "fontWeight": "400",
+    }
+  }
+>
+  XXL Text
+</Text>
+`;
+
+exports[`Text Component rendered correctly XXS Text Size 1`] = `
+<Text
+  allowFontScaling={false}
+  numberOfLines={0}
+  style={
+    Object {
+      "color": "#323030",
+      "fontFamily": "Avenir",
+      "fontSize": 24,
+      "fontWeight": "400",
+    }
+  }
+>
+  XXS Text
+</Text>
+`;

@@ -1,0 +1,603 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component rendered correctly Button Is Disabled 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID=""
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#E6E6E6",
+        "borderColor": "#4492c3",
+        "borderRadius": 6,
+        "borderWidth": 0,
+        "elevation": 3,
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "margin": 2,
+        "minWidth": "1%",
+        "paddingBottom": 14,
+        "paddingLeft": 28,
+        "paddingRight": 28,
+        "paddingTop": 14,
+        "shadowColor": "#333333",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.4,
+        "shadowRadius": 2,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      numberOfLines={0}
+      style={
+        Object {
+          "color": "#888888",
+          "fontFamily": "Avenir-Heavy",
+          "fontSize": 36,
+          "fontWeight": "700",
+        }
+      }
+    >
+      Disabled Button
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Button Component rendered correctly Button Style Calculator Primary 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID=""
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#4492c3",
+        "borderColor": "#4492c3",
+        "borderRadius": 6,
+        "borderWidth": 0,
+        "elevation": 3,
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "margin": 2,
+        "minWidth": "20%",
+        "paddingBottom": 14,
+        "paddingLeft": 20,
+        "paddingRight": 20,
+        "paddingTop": 14,
+        "shadowColor": "#333333",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.4,
+        "shadowRadius": 2,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      numberOfLines={0}
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontFamily": "Avenir-Heavy",
+          "fontSize": 36,
+          "fontWeight": "700",
+        }
+      }
+    >
+      Tertiary
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Button Component rendered correctly Button Style Calculator Secondary 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID=""
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#4492c3",
+        "borderRadius": 6,
+        "borderWidth": 1,
+        "elevation": 3,
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "margin": 2,
+        "minWidth": "20%",
+        "paddingBottom": 13,
+        "paddingLeft": 20,
+        "paddingRight": 20,
+        "paddingTop": 13,
+        "shadowColor": "#333333",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.4,
+        "shadowRadius": 2,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      numberOfLines={0}
+      style={
+        Object {
+          "color": "#4492c3",
+          "fontFamily": "Avenir-Heavy",
+          "fontSize": 36,
+          "fontWeight": "700",
+        }
+      }
+    >
+      Tertiary
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Button Component rendered correctly Button Style Hollow 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID=""
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#4492c3",
+        "borderRadius": 6,
+        "borderWidth": 1,
+        "elevation": 3,
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "margin": 2,
+        "minWidth": "1%",
+        "paddingBottom": 13,
+        "paddingLeft": 28,
+        "paddingRight": 28,
+        "paddingTop": 13,
+        "shadowColor": "#333333",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.4,
+        "shadowRadius": 2,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      numberOfLines={0}
+      style={
+        Object {
+          "color": "#4492c3",
+          "fontFamily": "Avenir-Heavy",
+          "fontSize": 36,
+          "fontWeight": "700",
+        }
+      }
+    >
+      Hollow
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Button Component rendered correctly Button Style Primary Large 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID=""
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#4492c3",
+        "borderColor": "#4492c3",
+        "borderRadius": 6,
+        "borderWidth": 0,
+        "elevation": 3,
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "margin": 2,
+        "minWidth": "1%",
+        "paddingBottom": 14,
+        "paddingLeft": 28,
+        "paddingRight": 28,
+        "paddingTop": 14,
+        "shadowColor": "#333333",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.4,
+        "shadowRadius": 2,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      numberOfLines={0}
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontFamily": "Avenir-Heavy",
+          "fontSize": 36,
+          "fontWeight": "700",
+        }
+      }
+    >
+      Primary Large
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Button Component rendered correctly Button Style Primary Small 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID=""
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#4492c3",
+        "borderColor": "#4492c3",
+        "borderRadius": 6,
+        "borderWidth": 0,
+        "elevation": 3,
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "margin": 2,
+        "minWidth": "1%",
+        "paddingBottom": 10,
+        "paddingLeft": 20,
+        "paddingRight": 20,
+        "paddingTop": 10,
+        "shadowColor": "#333333",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.4,
+        "shadowRadius": 2,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      numberOfLines={0}
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontFamily": "Avenir-Heavy",
+          "fontSize": 32,
+          "fontWeight": "700",
+        }
+      }
+    >
+      Primary Small
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Button Component rendered correctly Button Style Secondary 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID=""
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderColor": "#4492c3",
+        "borderRadius": 6,
+        "borderWidth": 0,
+        "elevation": 3,
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "margin": 2,
+        "minWidth": "1%",
+        "paddingBottom": 14,
+        "paddingLeft": 28,
+        "paddingRight": 28,
+        "paddingTop": 14,
+        "shadowColor": "#333333",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.4,
+        "shadowRadius": 2,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      numberOfLines={0}
+      style={
+        Object {
+          "color": "#323030",
+          "fontFamily": "Avenir-Heavy",
+          "fontSize": 36,
+          "fontWeight": "700",
+        }
+      }
+    >
+      Secondary
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Button Component rendered correctly Button Style Tertiary 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID=""
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "#4492c3",
+        "borderRadius": 0,
+        "borderWidth": 0,
+        "elevation": 0,
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "margin": 2,
+        "minWidth": "1%",
+        "paddingBottom": 14,
+        "paddingLeft": 28,
+        "paddingRight": 28,
+        "paddingTop": 14,
+        "shadowColor": "#333333",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 0,
+        "shadowRadius": 0,
+      }
+    }
+  >
+    <Text
+      allowFontScaling={false}
+      numberOfLines={0}
+      style={
+        Object {
+          "color": "#323030",
+          "fontFamily": "Avenir-Heavy",
+          "fontSize": 36,
+          "fontWeight": "700",
+        }
+      }
+    >
+      Tertiary
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Button Component rendered correctly Button With Icon 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID=""
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "#4492c3",
+        "borderRadius": 0,
+        "borderWidth": 0,
+        "elevation": 0,
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "margin": 2,
+        "minWidth": "1%",
+        "paddingBottom": 14,
+        "paddingLeft": 28,
+        "paddingRight": 28,
+        "paddingTop": 14,
+        "shadowColor": "#333333",
+        "shadowOffset": Object {
+          "height": 0,
+          "width": 0,
+        },
+        "shadowOpacity": 0,
+        "shadowRadius": 0,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+            "paddingRight": 5,
+          },
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        style={
+          Array [
+            Object {
+              "color": "#4492c3",
+              "fontSize": 16,
+            },
+            undefined,
+            Object {
+              "fontFamily": "Ionicons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+            Object {},
+          ]
+        }
+      >
+        
+      </Text>
+    </View>
+    <Text
+      allowFontScaling={false}
+      numberOfLines={0}
+      style={
+        Object {
+          "color": "#323030",
+          "fontFamily": "Avenir-Heavy",
+          "fontSize": 36,
+          "fontWeight": "700",
+        }
+      }
+    >
+      Button With Icon
+    </Text>
+  </View>
+</View>
+`;

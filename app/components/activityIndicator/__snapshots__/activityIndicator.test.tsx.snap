@@ -1,0 +1,321 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Activity Indicator Component rendered correctly Custom Color and Size Indicator, Default Settings 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    animating={true}
+    animationDuration={1600}
+    animationEasing={[Function]}
+    color="red"
+    hideAnimationDuration={200}
+    interaction={true}
+    renderComponent={[Function]}
+    style={
+      Object {
+        "height": 20,
+        "opacity": 1,
+        "width": 20,
+      }
+    }
+    waveFactor={0.54}
+    waveMode="fill"
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "bottom": 0,
+          "justifyContent": "center",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "red",
+            "borderRadius": 10,
+            "borderWidth": 0,
+            "height": 20,
+            "opacity": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 20,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "bottom": 0,
+          "justifyContent": "center",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "red",
+            "borderRadius": 10,
+            "borderWidth": 0,
+            "height": 20,
+            "opacity": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 20,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "bottom": 0,
+          "justifyContent": "center",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "red",
+            "borderRadius": 10,
+            "borderWidth": 0,
+            "height": 20,
+            "opacity": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 20,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "bottom": 0,
+          "justifyContent": "center",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "red",
+            "borderRadius": 10,
+            "borderWidth": 0,
+            "height": 20,
+            "opacity": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 20,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Activity Indicator Component rendered correctly Hidden Indicator, Default Settings 1`] = `null`;
+
+exports[`Activity Indicator Component rendered correctly Visible Indicator, Default Settings 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    animating={true}
+    animationDuration={1600}
+    animationEasing={[Function]}
+    color="#0f348e"
+    hideAnimationDuration={200}
+    interaction={true}
+    renderComponent={[Function]}
+    style={
+      Object {
+        "height": 40,
+        "opacity": 1,
+        "width": 40,
+      }
+    }
+    waveFactor={0.54}
+    waveMode="fill"
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "bottom": 0,
+          "justifyContent": "center",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#0f348e",
+            "borderRadius": 20,
+            "borderWidth": 0,
+            "height": 40,
+            "opacity": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "bottom": 0,
+          "justifyContent": "center",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#0f348e",
+            "borderRadius": 20,
+            "borderWidth": 0,
+            "height": 40,
+            "opacity": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "bottom": 0,
+          "justifyContent": "center",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#0f348e",
+            "borderRadius": 20,
+            "borderWidth": 0,
+            "height": 40,
+            "opacity": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "bottom": 0,
+          "justifyContent": "center",
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#0f348e",
+            "borderRadius": 20,
+            "borderWidth": 0,
+            "height": 40,
+            "opacity": 0,
+            "transform": Array [
+              Object {
+                "scale": 0,
+              },
+            ],
+            "width": 40,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;
