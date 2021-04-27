@@ -1,6 +1,6 @@
 import React from 'react';
-import {Colors} from 'styles';
-import {WaveIndicator} from 'react-native-indicators';
+import { Colors } from 'styles';
+import { WaveIndicator } from 'react-native-indicators';
 
 interface ActivityIndicatorProps {
   size?: number;

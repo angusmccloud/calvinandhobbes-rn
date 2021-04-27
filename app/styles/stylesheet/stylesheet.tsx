@@ -1,6 +1,6 @@
-import {StyleSheet, Dimensions} from 'react-native';
-import {getStatusBarHeight} from 'react-native-status-bar-height';
-import {Colors} from 'styles';
+import { StyleSheet, Dimensions } from 'react-native';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
+import { Colors } from 'styles';
 
 const deviceWidth = Dimensions.get('window').width;
 const deviceHeight = Dimensions.get('window').height - getStatusBarHeight(true);
@@ -78,7 +78,7 @@ const Styles = StyleSheet.create({
     margin: 10,
     padding: 10,
     shadowColor: Colors.borderShadow,
-    shadowOffset: {width: 0, height: 2},
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.4,
     shadowRadius: 2,
     elevation: 3,

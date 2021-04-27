@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, ViewStyle} from 'react-native';
-import {Colors, Styles} from 'styles';
+import { View, ViewStyle } from 'react-native';
+import { Colors, Styles } from 'styles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {eIcons} from 'models';
+import { eIcons } from 'models';
 
 export interface IconProps {
   icon: eIcons;

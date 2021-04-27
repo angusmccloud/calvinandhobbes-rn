@@ -1,4 +1,4 @@
-import {evaluate} from 'mathjs';
+import { evaluate } from 'mathjs';
 
 const calculate = (inputString: string): number => {
   return evaluate(inputString);

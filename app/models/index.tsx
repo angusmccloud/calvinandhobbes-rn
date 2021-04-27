@@ -1,6 +1,6 @@
-import {eIcons} from 'models/icons/icons';
+import { eIcons } from 'models/icons/icons';
 
 // Export eNums
-export {eIcons};
+export { eIcons };
 
 // Export Interfaces

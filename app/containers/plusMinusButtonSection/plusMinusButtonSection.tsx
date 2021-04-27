@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, TouchableOpacity} from 'react-native';
-import {Text, Icon} from 'components';
-import {eIcons} from 'models';
-import {Colors, Typography} from 'styles';
+import { View, TouchableOpacity } from 'react-native';
+import { Text, Icon } from 'components';
+import { eIcons } from 'models';
+import { Colors, Typography } from 'styles';
 
 const plusMinusButtonSection = (
   name: string,
@@ -13,22 +13,21 @@ const plusMinusButtonSection = (
   increaseValue: (category: string) => void,
   decreaseValue: (category: string) => void,
 ): React.ReactElement => {
-
   const decreaseHandler = () => {
-    if(!decreaseDisabled) {
-      decreaseValue(name)
+    if (!decreaseDisabled) {
+      decreaseValue(name);
     }
   };
 
   const increaseHandler = () => {
-    if(!increaseDisabled) {
+    if (!increaseDisabled) {
       increaseValue(name);
     }
   };
 
   return (
     <View>
-      <View style={{alignItems: 'center'}}>
+      <View style={{ alignItems: 'center' }}>
         <Text size="S" bold>
           {title}
         </Text>

@@ -1,15 +1,11 @@
 import React from 'react';
-import {TouchableOpacity, View} from 'react-native';
-import {Icon, Text} from 'components';
-import {Colors} from 'styles';
-import {eIcons} from 'models';
+import { TouchableOpacity, View } from 'react-native';
+import { Icon, Text } from 'components';
+import { Colors } from 'styles';
+import { eIcons } from 'models';
 
 interface ButtonProps {
-  buttonStyle:
-    | 'primary'
-    | 'secondary'
-    | 'hollow'
-    | 'tertiary';
+  buttonStyle: 'primary' | 'secondary' | 'hollow' | 'tertiary';
   disabled?: boolean;
   activeOpacity?: number;
   text: string;
@@ -42,7 +38,7 @@ const Button = ({
   let borderColor = Colors.buttonHollowBorder;
   let borderRadius = 6;
   let shadowRadius = 2;
-  let shadowOffset = {width: 0, height: 2};
+  let shadowOffset = { width: 0, height: 2 };
   let shadowOpacity = 0.4;
   let elevation = 3;
   let paddingVertical = size === 'Small' ? 10 : 14;
@@ -69,7 +65,7 @@ const Button = ({
     borderRadius = 0;
     shadowRadius = 0;
     shadowOpacity = 0;
-    shadowOffset = {width: 0, height: 0};
+    shadowOffset = { width: 0, height: 0 };
     elevation = 0;
     textColor = disabled
       ? Colors.buttonSecondaryDisabledText
@@ -113,7 +109,7 @@ const Button = ({
           <Icon
             icon={iconName}
             iconSize={iconSize}
-            containerStyle={{paddingRight: text.length > 0 ? 5 : 0}}
+            containerStyle={{ paddingRight: text.length > 0 ? 5 : 0 }}
             color={iconColor}
           />
         )}

@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {eIcons} from 'models';
+import { eIcons } from 'models';
 import Icon from './icon';
 
 describe('Icon Component rendered correctly', () => {
