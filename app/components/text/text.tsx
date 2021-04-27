@@ -1,6 +1,6 @@
 import React from 'react';
-import {Text as RNText, TextStyle} from 'react-native';
-import {Typography, Colors} from 'styles';
+import { Text as RNText, TextStyle } from 'react-native';
+import { Typography, Colors } from 'styles';
 
 export interface TextProps {
   size?: 'XXS' | 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL';
