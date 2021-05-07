@@ -49,3 +49,15 @@ Once your application is signed you can create a package that can be distributed
 * In the Organizer window (choose Window -> Organizer) you will see the archive that you created
 * You can then choose Distribute App, follow the prompts (choose App Store Connect for distribution method), and it will upload to iTunes Connect
 * In [iTunes Connect](https://appstoreconnect.apple.com/apps/) you then choose your application, go to the TestFlight tab, and once Apple has approved for testing you can choose the users or user-groups to send the application to
+
+## Environment Files
+When setting up your new Development environment, you need to setup your Environment Variables. You should create 3 files in app/environment/envConfig called `dev.json`, `test.json`, and `prod.json`. After you create them, run `npm run env:dev` to create the env.json that the application uses (or env:test or env:prod if you're connecting to a different environment).
+
+Below is an example of the content in the dev.json file:
+```
+{
+  "baseUrl": "https://url.execute-api.us-east-1.amazonaws.com/dev",
+  "xApiKey": "abc123",
+  "consoleLogs": true
+}
+```
