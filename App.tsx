@@ -30,7 +30,7 @@ const AboutStack = createStackNavigator();
 function TabOneStackScreen() {
   return (
     <TabOneStack.Navigator screenOptions={NavOptions}>
-      <TabOneStack.Screen name="Tab One" component={TabOneScreen} />
+      <TabOneStack.Screen name="TabOne" component={TabOneScreen} />
     </TabOneStack.Navigator>
   );
 }
@@ -38,7 +38,7 @@ function TabOneStackScreen() {
 function TabTwoStackScreen() {
   return (
     <TabTwoStack.Navigator screenOptions={NavOptions}>
-      <TabTwoStack.Screen name="Tab Two" component={TabTwoScreen} />
+      <TabTwoStack.Screen name="TabTwo" component={TabTwoScreen} />
     </TabTwoStack.Navigator>
   );
 }
@@ -46,7 +46,7 @@ function TabTwoStackScreen() {
 function TabThreeStackScreen() {
   return (
     <TabThreeStack.Navigator screenOptions={NavOptions}>
-      <TabThreeStack.Screen name="Tab Three" component={TabThreeScreen} />
+      <TabThreeStack.Screen name="TabThree" component={TabThreeScreen} />
     </TabThreeStack.Navigator>
   );
 }
@@ -54,7 +54,7 @@ function TabThreeStackScreen() {
 function TabFourStackScreen() {
   return (
     <TabFourStack.Navigator screenOptions={NavOptions}>
-      <TabFourStack.Screen name="Tab Four" component={TabFourScreen} />
+      <TabFourStack.Screen name="TabFour" component={TabFourScreen} />
     </TabFourStack.Navigator>
   );
 }
@@ -79,13 +79,13 @@ const App = () => {
           tabBarIcon: ({focused, color, size}) => {
             let iconName: eIcons = eIcons.tabOne;
 
-            if (route.name === 'Tab One') {
+            if (route.name === 'TabOne') {
               iconName = focused ? eIcons.tabOneFocused : eIcons.tabOne;
-            } else if (route.name === 'Tab Two') {
+            } else if (route.name === 'TabTwo') {
               iconName = focused ? eIcons.tabTwoFocused : eIcons.tabTwo;
-            } else if (route.name === 'Tab Three') {
+            } else if (route.name === 'TabThree') {
               iconName = focused ? eIcons.tabThreeFocused : eIcons.tabThree;
-            } else if (route.name === 'Tab Four') {
+            } else if (route.name === 'TabFour') {
               iconName = focused ? eIcons.tabFourFocused : eIcons.tabFour;
             } else if (route.name === 'About') {
               iconName = focused ? eIcons.aboutFocused : eIcons.about;
@@ -97,10 +97,10 @@ const App = () => {
             );
           },
         })}>
-        <Tab.Screen name="Tab One" component={TabOneStackScreen} />
-        <Tab.Screen name="Tab Two" component={TabTwoStackScreen} />
-        <Tab.Screen name="Tab Three" component={TabThreeStackScreen} />
-        <Tab.Screen name="Tab Four" component={TabFourStackScreen} />
+        <Tab.Screen name="TabOne" component={TabOneStackScreen} />
+        <Tab.Screen name="TabTwo" component={TabTwoStackScreen} />
+        <Tab.Screen name="TabThree" component={TabThreeStackScreen} />
+        <Tab.Screen name="TabFour" component={TabFourStackScreen} />
         <Tab.Screen name="About" component={AboutStackScreen} />
       </Tab.Navigator>
     </NavigationContainer>

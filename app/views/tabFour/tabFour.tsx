@@ -1,9 +1,13 @@
 import React from 'react';
 import { SafeAreaView, View } from 'react-native';
+import { StackScreenProps } from '@react-navigation/stack';
+import { NavStackFourParamList } from 'models';
 import { Text } from 'components';
 import { Styles } from 'styles';
 
-const TabFourScreen = ({ route, navigation }): React.ReactElement => {
+type NavProps = StackScreenProps<NavStackFourParamList, 'TabFour'>;
+
+const TabFourScreen = ({ route, navigation }: NavProps): React.ReactElement => {
   return (
     <SafeAreaView>
       <View style={Styles.body}>
