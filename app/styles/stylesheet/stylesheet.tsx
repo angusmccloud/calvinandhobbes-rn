@@ -10,7 +10,7 @@ const Styles = StyleSheet.create({
   body: {
     backgroundColor: Colors.appBackground,
     height: '100%',
-    width: deviceWidth,
+    width: '100%',
   },
   centerAll: {
     alignItems: 'center',

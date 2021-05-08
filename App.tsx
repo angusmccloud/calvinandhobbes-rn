@@ -13,6 +13,8 @@ import { eIcons } from 'models';
 const NavOptions: StackNavigationOptions = {
   headerStyle: {
     backgroundColor: Colors.calvinRed,
+    borderBottomWidth: 0,
+    shadowOffset: { height: 0, width: 0 },
   },
   headerTintColor: Colors.white,
   headerTitleStyle: {

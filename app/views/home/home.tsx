@@ -1,82 +1,51 @@
 import React, { useState, useEffect } from 'react';
-import {
-  SafeAreaView,
-  View,
-  ScrollView,
-  Image,
-  Dimensions,
-  FlatList,
-} from 'react-native';
-import FastImage from 'react-native-fast-image';
+import { SafeAreaView, View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
-import Masonry from 'react-native-masonry';
+import { StripList } from 'containers';
 import { GetStripDetails } from 'services';
 import { iStrip, NavStackOneParamList } from 'models';
-import { Text } from 'components';
-import { Styles, Colors } from 'styles';
-
-const deviceWidth = Dimensions.get('window').width;
+import { Styles } from 'styles';
 
 type NavProps = StackScreenProps<NavStackOneParamList, 'Home'>;
 
 const HomeScreen = ({ route, navigation }: NavProps): React.ReactElement => {
   const emptyStrips: iStrip[] = [];
   const [stripData, setStripData] = useState(emptyStrips);
+  const [filteredStripData, setFilteredStripData] = useState(emptyStrips);
+  const [searchText, setSearchText] = useState('');
+  
 
   useEffect(() => {
-    setStripData(GetStripDetails());
+    const baseData = GetStripDetails();
+    setStripData(baseData);
+    setFilteredStripData(baseData);
   }, []);
 
-  const renderImage = (item: iStrip) => {
-    return (
-      <View
-        style={{
-          width: deviceWidth / numColumns,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <View style={Styles.comicWrapper}>
-          <FastImage
-            source={{ uri: item.uri }}
-            style={{
-              width: imageWidth,
-              height:
-                (imageWidth / item.dimensions.width) * item.dimensions.height,
-            }}
-            resizeMode="contain"
-          />
-        </View>
-      </View>
+  const submitSearch = () => {
+    if(searchText.length > 0) {
+      const searchArray = searchText.toLocaleLowerCase().split(' ');
+      console.log(searchArray);
 
-    );
-  }
-
-  const numColumns = 3;
-  const imageWidth = (deviceWidth * .93) / numColumns;
-
-  const columns = [];
-  for (let i = 0; i < numColumns; i++) {
-    const blankArray: React.ReactElement[] = [];
-    columns.push(blankArray);
-  }
-
-  for (let i = 0; i < stripData.length; i++) {
-    columns[i % numColumns].push(renderImage(stripData[i]));
-  }
-
+      const filtered = stripData.filter((strip: iStrip) => {
+        let matches = true;
+        for(let i = 0; i < searchArray.length; i++) {
+          if(!strip.description.toLowerCase().includes(searchArray[i].toLowerCase())) {
+            matches = false;
+            break;
+          }
+        }
+        return matches;
+      });
+      setFilteredStripData(filtered);
+    } else {
+      setFilteredStripData(stripData);
+    }
+  };
 
   return (
     <SafeAreaView>
       <View style={Styles.body}>
-        <ScrollView>
-        <View style={{ flexDirection: 'row' }}>
-          {columns.map(column => <View>{column}</View>)} 
-          {/* <View>{columns[0]}</View>
-          <View>{columns[1]}</View>
-          <View>{columns[2]}</View> */}
-          {/* <View>{columns[3]}</View> */}
-        </View>
-        </ScrollView>
+        <StripList stripData={filteredStripData} navigation={navigation} setSearchText={setSearchText} searchText={searchText} submitSearch={submitSearch} />
       </View>
     </SafeAreaView>
   );

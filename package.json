@@ -29,8 +29,6 @@
     "react-native-fast-image": "^8.3.4",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-indicators": "^0.17.0",
-    "react-native-masonry": "git://github.com/eddyoc/react-native-masonry.git#flat-list-modernizer",
-    "react-native-masonry-layout": "^1.0.6",
     "react-native-reanimated": "^2.1.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-screens": "^3.0.0",
