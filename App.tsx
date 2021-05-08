@@ -1,61 +1,45 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator, StackNavigationOptions} from '@react-navigation/stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
 import {
-  TabOneScreen,
-  TabTwoScreen,
-  TabThreeScreen,
-  TabFourScreen,
-  AboutScreen,
-} from 'views';
-import {Colors, Typography} from 'styles';
+  createStackNavigator,
+  StackNavigationOptions,
+} from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { HomeScreen, FavoritesScreen, AboutScreen } from 'views';
+import { Colors, Typography } from 'styles';
 import { Icon } from 'components';
 import { eIcons } from 'models';
 
 const NavOptions: StackNavigationOptions = {
   headerStyle: {
-    backgroundColor: Colors.greenDark,
+    backgroundColor: Colors.calvinRed,
   },
   headerTintColor: Colors.white,
-  headerTitleStyle: Typography.fontBold,
+  headerTitleStyle: {
+    fontSize: Typography.fontSizeXL,
+    fontWeight: Typography.fontWeightBold,
+    fontFamily: 'Calvin and Hobbes'
+  },
+  
 };
 
-const TabOneStack = createStackNavigator();
-const TabTwoStack = createStackNavigator();
-const TabThreeStack = createStackNavigator();
-const TabFourStack = createStackNavigator();
+const HomeStack = createStackNavigator();
+const FavoritesStack = createStackNavigator();
 const AboutStack = createStackNavigator();
 
-function TabOneStackScreen() {
+function HomeStackScreen() {
   return (
-    <TabOneStack.Navigator screenOptions={NavOptions}>
-      <TabOneStack.Screen name="TabOne" component={TabOneScreen} />
-    </TabOneStack.Navigator>
+    <HomeStack.Navigator screenOptions={NavOptions}>
+      <HomeStack.Screen name="Home" component={HomeScreen} />
+    </HomeStack.Navigator>
   );
 }
 
-function TabTwoStackScreen() {
+function FavoritesStackScreen() {
   return (
-    <TabTwoStack.Navigator screenOptions={NavOptions}>
-      <TabTwoStack.Screen name="TabTwo" component={TabTwoScreen} />
-    </TabTwoStack.Navigator>
-  );
-}
-
-function TabThreeStackScreen() {
-  return (
-    <TabThreeStack.Navigator screenOptions={NavOptions}>
-      <TabThreeStack.Screen name="TabThree" component={TabThreeScreen} />
-    </TabThreeStack.Navigator>
-  );
-}
-
-function TabFourStackScreen() {
-  return (
-    <TabFourStack.Navigator screenOptions={NavOptions}>
-      <TabFourStack.Screen name="TabFour" component={TabFourScreen} />
-    </TabFourStack.Navigator>
+    <FavoritesStack.Navigator screenOptions={NavOptions}>
+      <FavoritesStack.Screen name="Favorites" component={FavoritesScreen} />
+    </FavoritesStack.Navigator>
   );
 }
 
@@ -67,40 +51,37 @@ function AboutStackScreen() {
   );
 }
 
-
 const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        tabBarOptions={{activeTintColor: Colors.greenDark, inactiveTintColor: Colors.textDefault, labelStyle: {fontSize: Typography.fontSizeXXS}}}
-        screenOptions={({route}) => ({
-          tabBarIcon: ({focused, color, size}) => {
-            let iconName: eIcons = eIcons.tabOne;
+        tabBarOptions={{
+          activeTintColor: Colors.calvinRed,
+          inactiveTintColor: Colors.textDefault,
+          labelStyle: { fontSize: Typography.fontSizeXXS },
+        }}
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName: eIcons = eIcons.home;
 
-            if (route.name === 'TabOne') {
-              iconName = focused ? eIcons.tabOneFocused : eIcons.tabOne;
-            } else if (route.name === 'TabTwo') {
-              iconName = focused ? eIcons.tabTwoFocused : eIcons.tabTwo;
-            } else if (route.name === 'TabThree') {
-              iconName = focused ? eIcons.tabThreeFocused : eIcons.tabThree;
-            } else if (route.name === 'TabFour') {
-              iconName = focused ? eIcons.tabFourFocused : eIcons.tabFour;
+            if (route.name === 'Home') {
+              iconName = focused ? eIcons.homeFocused : eIcons.home;
+            } else if (route.name === 'Favorites') {
+              iconName = focused ? eIcons.favoritesFocused : eIcons.favorites;
             } else if (route.name === 'About') {
               iconName = focused ? eIcons.aboutFocused : eIcons.about;
             }
 
             // You can return any component that you like here!
             return (
-              <Icon icon={iconName} iconSize={size} color={Colors.greenDark} />
+              <Icon icon={iconName} iconSize={size} color={Colors.calvinRed} />
             );
           },
         })}>
-        <Tab.Screen name="TabOne" component={TabOneStackScreen} />
-        <Tab.Screen name="TabTwo" component={TabTwoStackScreen} />
-        <Tab.Screen name="TabThree" component={TabThreeStackScreen} />
-        <Tab.Screen name="TabFour" component={TabFourStackScreen} />
+        <Tab.Screen name="Home" component={HomeStackScreen} />
+        <Tab.Screen name="Favorites" component={FavoritesStackScreen} />
         <Tab.Screen name="About" component={AboutStackScreen} />
       </Tab.Navigator>
     </NavigationContainer>

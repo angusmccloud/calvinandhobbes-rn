@@ -1,4 +1,4 @@
-Green Habit Building App by Slalom Boston 2021 Hackathon Team
+Calvin and Hobbes Mobile App by Connor
 ===
 
 This App built with [React Native](https://facebook.github.io/react-native/).

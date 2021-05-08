@@ -4,6 +4,7 @@ import { eIcons } from 'models/icons/icons';
 export { eIcons };
 
 // Export Interfaces
+export type iStrip = import('models/strips/strips').iStrip;
 
 // Export Types
 export type NavStackOneParamList = import('models/navigation/navigation').NavStackOneParamList;

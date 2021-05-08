@@ -7,23 +7,10 @@ const deviceHeight = Dimensions.get('window').height - getStatusBarHeight(true);
 
 // This is all mock data from the placeholder app, can be deleted once the placeholder app.tsx is removed
 const Styles = StyleSheet.create({
-  bedSummaryWrapper: {
-    backgroundColor: Colors.appBackground,
-    flexDirection: 'row',
-    height: 68,
-    justifyContent: 'flex-start',
-    overflow: 'hidden',
-    padding: 10,
-  },
   body: {
     backgroundColor: Colors.appBackground,
     height: '100%',
     width: deviceWidth,
-  },
-  calculatorRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    paddingBottom: 10,
   },
   centerAll: {
     alignItems: 'center',
@@ -71,22 +58,17 @@ const Styles = StyleSheet.create({
     marginBottom: 16,
     marginTop: 16,
   },
-  sectionWrapper: {
+  comicWrapper: {
     backgroundColor: Colors.tileBackground,
     borderRadius: 8,
-    marginTop: 0,
-    margin: 10,
-    padding: 10,
+    marginTop: 5,
+    marginBottom: 5,
+    padding: 5,
     shadowColor: Colors.borderShadow,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.4,
     shadowRadius: 2,
     elevation: 3,
-  },
-  textOnlyWrapper: {
-    paddingLeft: deviceWidth * 0.1,
-    paddingRight: deviceWidth * 0.4,
-    paddingTop: deviceHeight * 0.15,
   },
 });
 

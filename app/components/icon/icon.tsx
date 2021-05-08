@@ -37,22 +37,18 @@ Icon.defaultProps = {
 
 const iconName = (name: eIcons) => {
   switch (name) {
-    case eIcons.tabOne:
+    case eIcons.home:
       return 'home-outline';
-    case eIcons.tabOneFocused:
+    case eIcons.homeFocused:
       return 'home';
-    case eIcons.tabTwo:
+    case eIcons.search:
       return 'search-outline';
-    case eIcons.tabTwoFocused:
+    case eIcons.searchFocused:
       return 'search';
-    case eIcons.tabThree:
-      return 'stats-chart-outline';
-    case eIcons.tabThreeFocused:
-      return 'stats-chart';
-    case eIcons.tabFour:
-      return 'star-outline';
-    case eIcons.tabFourFocused:
-      return 'star';
+    case eIcons.favorites:
+      return 'heart-outline';
+    case eIcons.favoritesFocused:
+      return 'heart';
     case eIcons.about:
       return 'person-outline';
     case eIcons.aboutFocused:

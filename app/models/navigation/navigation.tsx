@@ -2,11 +2,11 @@ import { StackNavigationProp } from '@react-navigation/stack';
 
 // Sample screen export that needs props: `Details: { itemId: number };`
 export type NavStackOneParamList = {
-  TabOne: undefined;
+  Home: undefined;
 };
 
 export type NavStackTwoParamList = {
-  TabTwo: undefined;
+  Favorites: undefined;
 };
 
 export type NavStackThreeParamList = {

@@ -1,3 +1,6 @@
+// C&H Colors
+export const calvinRed = '#974139';
+
 // BASICS
 export const white = '#FFFFFF';
 export const black = '#000000';

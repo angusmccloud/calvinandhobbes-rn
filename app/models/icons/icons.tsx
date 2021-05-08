@@ -1,12 +1,10 @@
 export enum eIcons {
-  tabOne,
-  tabOneFocused,
-  tabTwo,
-  tabTwoFocused,
-  tabThree,
-  tabThreeFocused,
-  tabFour,
-  tabFourFocused,
+  home,
+  homeFocused,
+  favorites,
+  favoritesFocused,
+  search,
+  searchFocused,
   about,
   aboutFocused,
 }
