@@ -1,29 +1,28 @@
 import React, { useState } from 'react';
 import {
   View,
-  ScrollView,
   Dimensions,
   TextInput,
   FlatList,
 } from 'react-native';
-import { listImage } from 'containers';
+import { ListImage } from 'containers';
 import { iStrip, BasicNavProp } from 'models';
 import { calcDimensions, Typography, Colors } from 'styles';
 
 interface StripListProps {
   stripData: iStrip[];
-  navigation: BasicNavProp;
   searchText: string;
   setSearchText: (searchString: string) => void;
   submitSearch: () => void;
+  comicClickHandler: (clickedIndex: number) => void;
 }
 
 const StripList = ({
   stripData,
-  navigation,
   searchText,
   setSearchText,
   submitSearch,
+  comicClickHandler,
 }: StripListProps): React.ReactElement => {
   const [dimensions, setDimensions] = useState(calcDimensions());
 
@@ -36,18 +35,6 @@ const StripList = ({
   if (dimensions.orientation === 'portrait') {
     numColumns = 2;
     imageWidth = (dimensions.width * 0.93) / numColumns;
-  }
-
-  const columns = [];
-  for (let i = 0; i < numColumns; i++) {
-    const blankArray: React.ReactElement[] = [];
-    columns.push(blankArray);
-  }
-
-  for (let i = 0; i < stripData.length; i++) {
-    columns[i % numColumns].push(
-      listImage(stripData[i], imageWidth, dimensions.width, numColumns),
-    );
   }
 
   return (
@@ -86,8 +73,8 @@ const StripList = ({
       </View>
       <FlatList
         data={stripData}
-        renderItem={({ item }) =>
-          listImage(item, imageWidth, dimensions.width, numColumns)
+        renderItem={({ item, index }) =>
+            <ListImage item={item} imageWidth={imageWidth} deviceWidth={dimensions.width} numColumns={numColumns} comicClickHandler={comicClickHandler} index={index} />
         }
         keyExtractor={item => item.id.toString()}
         numColumns={numColumns}

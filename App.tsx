@@ -5,7 +5,7 @@ import {
   StackNavigationOptions,
 } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { HomeScreen, FavoritesScreen, AboutScreen } from 'views';
+import { HomeScreen, FavoritesScreen, AboutScreen, ComicDetailsScreen } from 'views';
 import { Colors, Typography } from 'styles';
 import { Icon } from 'components';
 import { eIcons } from 'models';
@@ -33,6 +33,7 @@ function HomeStackScreen() {
   return (
     <HomeStack.Navigator screenOptions={NavOptions}>
       <HomeStack.Screen name="Home" component={HomeScreen} />
+      <HomeStack.Screen name="ComicDetails" component={ComicDetailsScreen} options={{ title: 'calvin and hobbes' }} />
     </HomeStack.Navigator>
   );
 }
@@ -41,6 +42,7 @@ function FavoritesStackScreen() {
   return (
     <FavoritesStack.Navigator screenOptions={NavOptions}>
       <FavoritesStack.Screen name="Favorites" component={FavoritesScreen} />
+      <FavoritesStack.Screen name="ComicDetails" component={ComicDetailsScreen} options={{ title: 'calvin and hobbes' }} />
     </FavoritesStack.Navigator>
   );
 }

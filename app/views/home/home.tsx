@@ -42,10 +42,17 @@ const HomeScreen = ({ route, navigation }: NavProps): React.ReactElement => {
     }
   };
 
+  const comicClickHandler = (clickedIndex: number) => {
+    navigation.navigate('ComicDetails', {
+      stripData: filteredStripData,
+      clickedIndex: clickedIndex,
+    });
+  }
+
   return (
     <SafeAreaView>
       <View style={Styles.body}>
-        <StripList stripData={filteredStripData} navigation={navigation} setSearchText={setSearchText} searchText={searchText} submitSearch={submitSearch} />
+        <StripList stripData={filteredStripData} setSearchText={setSearchText} searchText={searchText} submitSearch={submitSearch} comicClickHandler={comicClickHandler} />
       </View>
     </SafeAreaView>
   );
