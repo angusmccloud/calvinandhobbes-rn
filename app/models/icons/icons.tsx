@@ -7,4 +7,5 @@ export enum eIcons {
   searchFocused,
   about,
   aboutFocused,
+  share,
 }
