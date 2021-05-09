@@ -30,12 +30,8 @@ const StripList = ({
     setDimensions(calcDimensions());
   });
 
-  let numColumns = 3;
-  let imageWidth = (dimensions.width * 0.93) / numColumns;
-  if (dimensions.orientation === 'portrait') {
-    numColumns = 2;
-    imageWidth = (dimensions.width * 0.93) / numColumns;
-  }
+  const numColumns = Math.max(Math.floor(dimensions.width / 300), 1);
+  const imageWidth = (dimensions.width * 0.93) / numColumns;
 
   return (
     <>

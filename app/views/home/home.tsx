@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView, View } from 'react-native';
+import { View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { StripList } from 'containers';
 import { GetStripDetails } from 'services';
@@ -49,12 +49,14 @@ const HomeScreen = ({ route, navigation }: NavProps): React.ReactElement => {
     });
   }
 
+  console.log(new Date(2020, 3, 15));
+  const dt: Date = '2020-04-15T04:00:00.000Z';
+  console.log(dt);
+
   return (
-    <SafeAreaView>
-      <View style={Styles.body}>
-        <StripList stripData={filteredStripData} setSearchText={setSearchText} searchText={searchText} submitSearch={submitSearch} comicClickHandler={comicClickHandler} />
-      </View>
-    </SafeAreaView>
+    <View style={Styles.body}>
+      <StripList stripData={filteredStripData} setSearchText={setSearchText} searchText={searchText} submitSearch={submitSearch} comicClickHandler={comicClickHandler} />
+    </View>
   );
 };
 

@@ -18,14 +18,6 @@ export type NavStackTwoParamList = {
   };
 };
 
-export type NavStackThreeParamList = {
-  TabThree: undefined;
-};
-
-export type NavStackFourParamList = {
-  TabFour: undefined;
-};
-
 export type NavStackAboutParamList = {
   About: undefined;
 };
