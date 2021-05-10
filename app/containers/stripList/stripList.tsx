@@ -6,7 +6,7 @@ import {
   FlatList,
 } from 'react-native';
 import { ListImage } from 'containers';
-import { iStrip, BasicNavProp } from 'models';
+import { iStrip } from 'models'; 
 import { calcDimensions, Typography, Colors } from 'styles';
 
 interface StripListProps {
@@ -64,7 +64,6 @@ const StripList = ({
           }}
           onChangeText={(text) => setSearchText(text)}
           onSubmitEditing={() => submitSearch()}
-          onEndEditing={() => submitSearch()}
         />
       </View>
       <FlatList
