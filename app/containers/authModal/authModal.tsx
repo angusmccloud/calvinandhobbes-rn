@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { View, TouchableWithoutFeedback, Modal, TextInput } from 'react-native';
 import * as Keychain from 'react-native-keychain';
 import { Auth } from 'aws-amplify';
@@ -175,6 +175,10 @@ const AuthModal = (): React.ReactElement => {
     console.log('-- AUTH STATUS --', auth);
   };
 
+  const ref_loginPassword = useRef();
+  const ref_createPassword = useRef();
+  const ref_createPasswordConfirm = useRef();
+
   return (
     <>
       <TouchableWithoutFeedback onPress={() => openModal()}>
@@ -326,6 +330,7 @@ const AuthModal = (): React.ReactElement => {
                       minWidth: '50%',
                     }}
                     onChangeText={(text) => setUsername(text)}
+                    onSubmitEditing={() => ref_loginPassword.current.focus()}
                   />
                   <TextInput
                     onChangeText={(text) => setPassword(text)}
@@ -353,6 +358,7 @@ const AuthModal = (): React.ReactElement => {
                       backgroundColor: Colors.white,
                       minWidth: '50%',
                     }}
+                    ref={ref_loginPassword}
                   />
                   {error !== '' && (
                     <Text style={{ marginTop: 10, marginBottom: 10 }}>
@@ -405,6 +411,7 @@ const AuthModal = (): React.ReactElement => {
                       minWidth: '50%',
                     }}
                     onChangeText={(text) => setUsername(text)}
+                    onSubmitEditing={() => ref_createPassword.current.focus()}
                   />
                   <TextInput
                     onChangeText={(text) => setPassword(text)}
@@ -430,6 +437,8 @@ const AuthModal = (): React.ReactElement => {
                       backgroundColor: Colors.white,
                       minWidth: '50%',
                     }}
+                    ref={ref_createPassword}
+                    onSubmitEditing={() => ref_createPasswordConfirm.current.focus()}
                   />
                   <TextInput
                     onChangeText={(text) => setConfirmPassword(text)}
@@ -457,6 +466,7 @@ const AuthModal = (): React.ReactElement => {
                       backgroundColor: Colors.white,
                       minWidth: '50%',
                     }}
+                    ref={ref_createPasswordConfirm}
                   />
                   {error !== '' && (
                     <Text style={{ marginTop: 10, marginBottom: 10 }}>
