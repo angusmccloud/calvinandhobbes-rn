@@ -16,7 +16,6 @@ const HomeScreen = ({ route, navigation }: NavProps): React.ReactElement => {
   const [filteredStripData, setFilteredStripData] = useState(emptyStrips);
   const [searchText, setSearchText] = useState('');
   
-
   useEffect(() => {
     const baseData = GetStripDetails();
     setStripData(baseData);
@@ -50,7 +49,6 @@ const HomeScreen = ({ route, navigation }: NavProps): React.ReactElement => {
       clickedIndex: clickedIndex,
     });
   }
-
 
   useEffect(() => {
     const key = async (): Promise<void> => {
