@@ -8,6 +8,7 @@ export interface TextProps {
   bold?: boolean;
   color?: string;
   numberOfLines?: number;
+  fontFamily?: string;
   children: React.ReactNode;
 }
 
@@ -18,6 +19,7 @@ const Text = ({
   bold,
   color,
   numberOfLines,
+  fontFamily,
   ...rest
 }: TextProps): React.ReactElement => (
   <RNText
@@ -27,9 +29,7 @@ const Text = ({
     style={{
       ...style,
       fontSize: getSize(size),
-      fontFamily: bold
-        ? Typography.fontFamilyBold
-        : Typography.fontFamilyRegular,
+      fontFamily: fontFamily,
       fontWeight: bold
         ? Typography.fontWeightBold
         : Typography.fontWeightRegular,
@@ -44,6 +44,7 @@ Text.defaultProps = {
   bold: false,
   size: 'M',
   numberOfLines: 0,
+  fontFamily: Typography.fontFamilyRegular,
 };
 
 const getSize = (size: string): number => {

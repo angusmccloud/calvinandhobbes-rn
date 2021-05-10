@@ -8,4 +8,5 @@ export enum eIcons {
   about,
   aboutFocused,
   share,
+  user,
 }

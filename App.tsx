@@ -8,7 +8,16 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { HomeScreen, FavoritesScreen, AboutScreen, ComicDetailsScreen } from 'views';
 import { Colors, Typography } from 'styles';
 import { Icon } from 'components';
+import { AuthModal } from 'containers';
 import { eIcons } from 'models';
+import Amplify from 'aws-amplify';
+import config from './aws-exports';
+Amplify.configure({
+  ...config,
+  Analytics: {
+    disabled: true,
+  },
+});
 
 const NavOptions: StackNavigationOptions = {
   headerStyle: {
@@ -32,8 +41,8 @@ const AboutStack = createStackNavigator();
 function HomeStackScreen() {
   return (
     <HomeStack.Navigator screenOptions={NavOptions}>
-      <HomeStack.Screen name="Home" component={HomeScreen} />
-      <HomeStack.Screen name="ComicDetails" component={ComicDetailsScreen} options={{ title: 'calvin and hobbes' }} />
+      <HomeStack.Screen name="Home" component={HomeScreen} options={{headerRight: () => (<AuthModal />)}} />
+      <HomeStack.Screen name="ComicDetails" component={ComicDetailsScreen} options={{ title: 'calvin and hobbes' }} options={{headerBackTitleStyle:{fontFamily: 'Calvin and Hobbes'}, headerRight: () => (<AuthModal />)}} />
     </HomeStack.Navigator>
   );
 }
@@ -41,8 +50,8 @@ function HomeStackScreen() {
 function FavoritesStackScreen() {
   return (
     <FavoritesStack.Navigator screenOptions={NavOptions}>
-      <FavoritesStack.Screen name="Favorites" component={FavoritesScreen} />
-      <FavoritesStack.Screen name="ComicDetails" component={ComicDetailsScreen} options={{ title: 'calvin and hobbes' }} />
+      <FavoritesStack.Screen name="Favorites" component={FavoritesScreen} options={{headerRight: () => (<AuthModal />)}} />
+      <HomeStack.Screen name="ComicDetails" component={ComicDetailsScreen} options={{ title: 'calvin and hobbes' }} options={{headerBackTitleStyle:{fontFamily: 'Calvin and Hobbes'}, headerRight: () => (<AuthModal />)}} />
     </FavoritesStack.Navigator>
   );
 }
@@ -50,7 +59,7 @@ function FavoritesStackScreen() {
 function AboutStackScreen() {
   return (
     <AboutStack.Navigator screenOptions={NavOptions}>
-      <AboutStack.Screen name="About" component={AboutScreen} />
+      <AboutStack.Screen name="About" component={AboutScreen} options={{headerRight: () => (<AuthModal />)}} />
     </AboutStack.Navigator>
   );
 }

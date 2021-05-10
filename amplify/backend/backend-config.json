@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "calvinandhobbesrnebf9b23b": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

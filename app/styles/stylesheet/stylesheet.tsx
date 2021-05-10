@@ -37,10 +37,11 @@ const Styles = StyleSheet.create({
     width: '60%',
   },
   modalHeader: {
-    backgroundColor: Colors.blueBackground,
+    backgroundColor: Colors.calvinRed,
     borderBottomColor: Colors.blueLight,
     borderBottomWidth: 1,
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
     padding: 10,
   },

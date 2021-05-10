@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
+import * as Keychain from 'react-native-keychain';
+import { Auth } from 'aws-amplify';
 import { StripList } from 'containers';
 import { GetStripDetails } from 'services';
 import { iStrip, NavStackOneParamList } from 'models';
@@ -49,9 +51,54 @@ const HomeScreen = ({ route, navigation }: NavProps): React.ReactElement => {
     });
   }
 
-  console.log(new Date(2020, 3, 15));
-  const dt: Date = '2020-04-15T04:00:00.000Z';
-  console.log(dt);
+
+  useEffect(() => {
+    const key = async (): Promise<void> => {
+      try {
+        const credentials = await Keychain.getInternetCredentials('auth');
+        console.log('---- credentials ----', credentials);
+
+        if (credentials) {
+          const { username, password } = credentials;
+          const user = await Auth.signIn(username, password);
+          console.log('-- User already logged in, forward them!');
+          const authedUserObject = {
+            id: user.attributes.sub,
+            fullName: user.attributes.name,
+            signInTokens: {
+              accessToken: user.signInUserSession.accessToken.jwtToken,
+              refreshToken: user.signInUserSession.refreshToken.token,
+              idToken: user.signInUserSession.idToken.jwtToken,
+              accessTokenExp: user.signInUserSession.accessToken.payload.exp,
+            },
+          };
+          console.log("--- userObject ---", authedUserObject);
+
+          
+          // const resetAction = StackNavigationOptions.reset({
+          //   index: 0,
+          //   actions: [StackNavigationOptions.navigate({ routeName: 'Home' })],
+          // });
+          // navigation.dispatch(resetAction);
+          // navigation.navigate('Home');
+        } else {
+          console.log('-- No Existing Credentials --');
+        }
+      } catch (err) {
+        console.log('error', err); // eslint-disable-line
+      }
+    }
+    key()
+  }, []) // eslint-disable-line
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [authInProgress, setAuthInProgress] = useState(false);
+  const [error, setError] = useState('');
+
+
+
+
 
   return (
     <View style={Styles.body}>

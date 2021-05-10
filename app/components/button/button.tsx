@@ -33,9 +33,9 @@ const Button = ({
   let textColor = disabled ? Colors.buttonDisabledText : Colors.white;
   let backgroundColor = disabled
     ? Colors.buttonDisabledBackground
-    : Colors.buttonPrimaryBackground;
+    : Colors.calvinRed;
   let borderWidth = 0;
-  let borderColor = Colors.buttonHollowBorder;
+  let borderColor = Colors.calvinRed;
   let borderRadius = 6;
   let shadowRadius = 2;
   let shadowOffset = { width: 0, height: 2 };
@@ -57,7 +57,7 @@ const Button = ({
   } else if (buttonStyle === 'hollow') {
     textColor = disabled
       ? Colors.buttonHollowDisabledText
-      : Colors.buttonHollowText;
+      : Colors.calvinRed;
     backgroundColor = Colors.buttonHollowBackground;
     borderWidth = disabled ? 0 : 1;
     paddingVertical -= 1; // account for border, keep same height

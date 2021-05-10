@@ -58,6 +58,11 @@ Below is an example of the content in the dev.json file:
 {
   "baseUrl": "https://url.execute-api.us-east-1.amazonaws.com/dev",
   "xApiKey": "abc123",
-  "consoleLogs": true
+  "consoleLogs": true,
+  "cognito": {
+    "identityPoolId": "[removed]",
+    "userPoolId": "[removed]",
+    "userPoolClientId": "[removed]"
+  }
 }
 ```

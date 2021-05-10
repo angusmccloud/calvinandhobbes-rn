@@ -5,6 +5,7 @@ export { eIcons };
 
 // Export Interfaces
 export type iStrip = import('models/strips/strips').iStrip;
+export type iAuthStatus = import('models/authStatus/authStatus').iAuthStatus;
 
 // Export Types
 export type NavStackOneParamList = import('models/navigation/navigation').NavStackOneParamList;

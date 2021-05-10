@@ -55,6 +55,8 @@ const iconName = (name: eIcons) => {
       return 'person';
     case eIcons.share:
       return 'share-outline';
+    case eIcons.user:
+      return 'person-circle-outline';
     default:
       return 'home';
   }
