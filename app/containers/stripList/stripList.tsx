@@ -71,7 +71,7 @@ const StripList = ({
         renderItem={({ item, index }) =>
             <ListImage item={item} imageWidth={imageWidth} deviceWidth={dimensions.width} numColumns={numColumns} comicClickHandler={comicClickHandler} index={index} />
         }
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={item => item.id}
         numColumns={numColumns}
         key={numColumns}
       />

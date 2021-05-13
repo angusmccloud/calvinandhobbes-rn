@@ -18,7 +18,7 @@ const ActivityIndicator = ({
 
 ActivityIndicator.defaultProps = {
   size: 40,
-  color: Colors.blueDark,
+  color: Colors.calvinRed,
   visible: true,
 };
 

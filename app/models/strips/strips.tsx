@@ -1,5 +1,5 @@
 export interface iStrip {
-  id: number;
+  id: string;
   uri: string;
   dimensions: {
     width: number,
@@ -8,5 +8,10 @@ export interface iStrip {
   goComicsUrl: string;
   description: string;
   hasDescription: boolean;
-  publishedDate: Date;
+  displayDate: string;
+  publishedDate: {
+    year: number,
+    month: number,
+    day: number
+  }
 };

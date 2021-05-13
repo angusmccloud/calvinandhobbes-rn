@@ -1,6 +1,6 @@
-import Text from 'components/text/text';
-import Button from 'components/button/button';
-import Icon from 'components/icon/icon';
-import ActivityIndicator from 'components/activityIndicator/activityIndicator';
+import Text from './text/text';
+import Button from './button/button';
+import Icon from './icon/icon';
+import ActivityIndicator from './activityIndicator/activityIndicator';
 
 export { Text, Button, Icon, ActivityIndicator };

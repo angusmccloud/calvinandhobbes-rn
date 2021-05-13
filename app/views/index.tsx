@@ -1,7 +1,7 @@
-import HomeScreen from 'views/home/home';
-import FavoritesScreen from 'views/favorites/favorites';
-import AboutScreen from 'views/about/about';
-import ComicDetailsScreen from 'views/comicDetails/comicDetails';
+import HomeScreen from './home/home';
+import FavoritesScreen from './favorites/favorites';
+import AboutScreen from './about/about';
+import ComicDetailsScreen from './comicDetails/comicDetails';
 
 export {
   HomeScreen,

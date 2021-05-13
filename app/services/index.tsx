@@ -1,5 +1,9 @@
-import GetStripDetails from 'services/getStripDetails/getStripDetails';
+import GetStripDetails from './getStripDetails/getStripDetails';
+import AddFavorite from './addFavorite/addFavorite';
+import DeleteFavorite from './deleteFavorite/deleteFavorite';
 
 export {
-    GetStripDetails
+    GetStripDetails,
+    AddFavorite,
+    DeleteFavorite
 }

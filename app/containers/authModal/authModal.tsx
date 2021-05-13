@@ -233,7 +233,7 @@ const AuthModal = (): React.ReactElement => {
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}>
-                <ActivityIndicator color={Colors.calvinRed} size={40} />
+                <ActivityIndicator size={40} />
               </View>
             )}
             {authStatus.isAuthed && !initialLoad && (

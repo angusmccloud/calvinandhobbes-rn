@@ -1,6 +1,7 @@
-import plusMinusButtonSection from 'containers/plusMinusButtonSection/plusMinusButtonSection';
-import ListImage from 'containers/listImage/listImage';
-import StripList from 'containers/stripList/stripList';
-import AuthModal from 'containers/authModal/authModal';
+import plusMinusButtonSection from './plusMinusButtonSection/plusMinusButtonSection';
+import ListImage from './listImage/listImage';
+import StripList from './stripList/stripList';
+import AuthModal from './authModal/authModal';
+import ComicDetail from './comicDetail/comicDetail';
 
-export { plusMinusButtonSection, ListImage, StripList, AuthModal };
+export { plusMinusButtonSection, ListImage, StripList, AuthModal, ComicDetail };

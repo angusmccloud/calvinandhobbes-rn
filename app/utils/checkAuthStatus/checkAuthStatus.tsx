@@ -9,7 +9,7 @@ const checkAuthStatus = async (): Promise<iAuthStatus> => {
     };
   try {
     const credentials = await Keychain.getInternetCredentials('auth');
-    console.log('---- credentials ----', credentials);
+    // console.log('---- credentials ----', credentials);
 
     if (credentials) {
       const { username, password } = credentials;
