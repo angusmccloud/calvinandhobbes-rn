@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, TouchableWithoutFeedback, Modal } from 'react-native';
+import { View, TouchableWithoutFeedback } from 'react-native';
 import { Calendar } from 'react-native-calendario';
-// import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
-// import CalendarPicker from 'react-native-calendar-picker';
+import Modal from 'react-native-modal';
 import { Colors, Styles, Typography, calcDimensions } from 'styles';
 import { Icon, Text, Button } from 'components';
 import { displayDate } from 'utils';
@@ -52,17 +51,22 @@ const CalendarModal = ({
   return (
     <>
       <Modal
-        animationType="slide"
-        transparent
-        visible={showModal}
-        presentationStyle="overFullScreen"
-        supportedOrientations={['portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right']}
-        onRequestClose={() => {
+        avoidKeyboard={true}
+        coverScreen={true}
+        propagateSwipe={true}
+        backdropColor={Colors.black}
+        deviceHeight={dimensions.height}
+        deviceWidth={dimensions.width}
+        isVisible={showModal}
+        onBackdropPress={() => {
           setShowModal(false);
-        }}>
-        <TouchableWithoutFeedback onPress={() => closeModal()}>
-          <View style={Styles.modalBackground} />
-        </TouchableWithoutFeedback>
+        }}
+        onBackButtonPress={() => {
+          setShowModal(false);
+        }}
+        useNativeDriver={true}
+        supportedOrientations={['portrait', 'landscape']}
+        >
         <View style={Styles.modalBody}>
           <View style={Styles.modalHeader}>
             <View style={{ flex: 1, alignItems: 'flex-start' }}>
@@ -92,7 +96,7 @@ const CalendarModal = ({
             </View>
           </View>
           <View>
-            <View style={{height: 500, maxHeight: dimensions.height * .8}}>
+            <View style={{maxHeight: dimensions.height * .8}}>
               <Calendar
                 onChange={(range) => onDateChange(range)}
                 minDate={minDate}

@@ -1,9 +1,10 @@
 import React, { useState, useRef } from 'react';
-import { View, TouchableWithoutFeedback, Modal, TextInput } from 'react-native';
+import { View, TouchableWithoutFeedback, TextInput, ScrollView } from 'react-native';
 import * as Keychain from 'react-native-keychain';
 import { Auth } from 'aws-amplify';
+import Modal from 'react-native-modal';
 import { iStrip, BasicNavProp, eIcons, iAuthStatus } from 'models';
-import { Colors, Styles, Typography } from 'styles';
+import { Colors, Styles, Typography, calcDimensions } from 'styles';
 import { Icon, Text, Button, ActivityIndicator } from 'components';
 import { checkAuthStatus } from 'utils';
 
@@ -20,6 +21,8 @@ const AuthModal = (): React.ReactElement => {
   const [error, setError] = useState('');
   const [confirmationPending, setConfirmationPending] = useState(false);
   const [confirmationCode, setConfirmationCode] = useState('');
+
+  const dimensions = calcDimensions();
 
   const openModal = () => {
     console.log('-- Open Modal --');
@@ -192,17 +195,22 @@ const AuthModal = (): React.ReactElement => {
         </View>
       </TouchableWithoutFeedback>
       <Modal
-        animationType="slide"
-        transparent
-        visible={showModal}
-        presentationStyle="overFullScreen"
-        supportedOrientations={['portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right']}
-        onRequestClose={() => {
+        avoidKeyboard={true}
+        // coverScreen={true}
+        propagateSwipe={true}
+        backdropColor={Colors.black}
+        deviceHeight={dimensions.height}
+        deviceWidth={dimensions.width}
+        isVisible={showModal}
+        onBackdropPress={() => {
           setShowModal(false);
-        }}>
-        <TouchableWithoutFeedback onPress={() => closeModal()}>
-          <View style={Styles.modalBackground} />
-        </TouchableWithoutFeedback>
+        }}
+        onBackButtonPress={() => {
+          setShowModal(false);
+        }}
+        useNativeDriver={true}
+        supportedOrientations={['portrait', 'landscape']}
+        >
         <View style={Styles.modalBody}>
           <View style={Styles.modalHeader}>
             <View style={{ flex: 1, alignItems: 'flex-start' }}>
@@ -224,7 +232,7 @@ const AuthModal = (): React.ReactElement => {
             </View>
             <View style={{ flex: 1 }}></View>
           </View>
-          <View>
+          <ScrollView>
             {initialLoad && (
               <View
                 style={{
@@ -489,7 +497,7 @@ const AuthModal = (): React.ReactElement => {
                   </View>
                 </View>
               )}
-          </View>
+          </ScrollView>
         </View>
       </Modal>
     </>

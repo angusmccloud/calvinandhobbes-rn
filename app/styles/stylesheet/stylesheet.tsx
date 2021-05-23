@@ -3,7 +3,6 @@ import { Colors, calcDimensions } from 'styles';
 
 const dimensions = calcDimensions();
 
-// This is all mock data from the placeholder app, can be deleted once the placeholder app.tsx is removed
 const Styles = StyleSheet.create({
   body: {
     backgroundColor: Colors.appBackground,
@@ -25,15 +24,8 @@ const Styles = StyleSheet.create({
   modalBody: {
     backgroundColor: Colors.white,
     borderRadius: 10,
-    justifyContent: 'center',
-    marginBottom: '10%',
-    marginLeft: '5%',
-    marginRight: '5%',
-    marginTop: '10%',
-    maxHeight: '80%',
+    justifyContent: 'flex-start',
     overflow: 'hidden',
-    minWidth: '40%',
-    maxWidth: '90%',
   },
   modalHeader: {
     backgroundColor: Colors.calvinRed,
