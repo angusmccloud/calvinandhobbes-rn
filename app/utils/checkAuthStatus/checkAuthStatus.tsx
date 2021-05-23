@@ -28,7 +28,7 @@ const checkAuthStatus = async (): Promise<iAuthStatus> => {
           },
         },
       };
-      console.log('--- userObject ---', authedUserObject);
+      // console.log('--- userObject ---', authedUserObject);
       return authedUserObject;
     } else {
       console.log('-- No Existing Credentials --');

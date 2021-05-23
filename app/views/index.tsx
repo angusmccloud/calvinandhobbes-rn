@@ -1,10 +1,10 @@
-import HomeScreen from './home/home';
+import SearchScreen from './search/search';
 import FavoritesScreen from './favorites/favorites';
 import AboutScreen from './about/about';
 import ComicDetailsScreen from './comicDetails/comicDetails';
 
 export {
-  HomeScreen,
+  SearchScreen,
   FavoritesScreen,
   AboutScreen,
   ComicDetailsScreen,

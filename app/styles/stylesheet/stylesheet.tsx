@@ -1,9 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import { getStatusBarHeight } from 'react-native-status-bar-height';
-import { Colors } from 'styles';
+import { Colors, calcDimensions } from 'styles';
 
-const deviceWidth = Dimensions.get('window').width;
-const deviceHeight = Dimensions.get('window').height - getStatusBarHeight(true);
+const dimensions = calcDimensions();
 
 // This is all mock data from the placeholder app, can be deleted once the placeholder app.tsx is removed
 const Styles = StyleSheet.create({
@@ -29,12 +27,13 @@ const Styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     marginBottom: '10%',
-    marginLeft: '20%',
-    marginRight: '20%',
+    marginLeft: '5%',
+    marginRight: '5%',
     marginTop: '10%',
     maxHeight: '80%',
     overflow: 'hidden',
-    width: '60%',
+    minWidth: '40%',
+    maxWidth: '90%',
   },
   modalHeader: {
     backgroundColor: Colors.calvinRed,

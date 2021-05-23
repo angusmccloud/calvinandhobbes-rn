@@ -9,4 +9,5 @@ export enum eIcons {
   aboutFocused,
   share,
   user,
+  calendar,
 }

@@ -196,6 +196,7 @@ const AuthModal = (): React.ReactElement => {
         transparent
         visible={showModal}
         presentationStyle="overFullScreen"
+        supportedOrientations={['portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right']}
         onRequestClose={() => {
           setShowModal(false);
         }}>

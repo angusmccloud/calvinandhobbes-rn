@@ -30,7 +30,7 @@ const Icon = ({
 );
 
 Icon.defaultProps = {
-  color: Colors.greenDark,
+  color: Colors.calvinRed,
   iconSize: 50,
   outline: true,
 };
@@ -57,6 +57,8 @@ const iconName = (name: eIcons) => {
       return 'share-outline';
     case eIcons.user:
       return 'person-circle-outline';
+    case eIcons.calendar:
+      return 'calendar-outline';
     default:
       return 'home';
   }

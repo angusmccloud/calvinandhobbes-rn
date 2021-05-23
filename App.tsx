@@ -5,7 +5,12 @@ import {
   StackNavigationOptions,
 } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { HomeScreen, FavoritesScreen, AboutScreen, ComicDetailsScreen } from 'views';
+import {
+  SearchScreen,
+  FavoritesScreen,
+  AboutScreen,
+  ComicDetailsScreen,
+} from 'views';
 import { Colors, Typography } from 'styles';
 import { Icon } from 'components';
 import { AuthModal } from 'containers';
@@ -29,29 +34,75 @@ const NavOptions: StackNavigationOptions = {
   headerTitleStyle: {
     fontSize: Typography.fontSizeXL,
     fontWeight: Typography.fontWeightBold,
-    fontFamily: 'Calvin and Hobbes'
+    fontFamily: 'Calvin and Hobbes',
   },
-  
 };
 
 const HomeStack = createStackNavigator();
+const SearchStack = createStackNavigator();
 const FavoritesStack = createStackNavigator();
 const AboutStack = createStackNavigator();
 
 function HomeStackScreen() {
   return (
     <HomeStack.Navigator screenOptions={NavOptions}>
-      <HomeStack.Screen name="Home" component={HomeScreen} options={{headerRight: () => (<AuthModal />)}} />
-      <HomeStack.Screen name="ComicDetails" component={ComicDetailsScreen} options={{ title: 'calvin and hobbes' }} options={{headerBackTitleStyle:{fontFamily: 'Calvin and Hobbes'}, headerRight: () => (<AuthModal />)}} />
+      <HomeStack.Screen
+        name="Home"
+        component={ComicDetailsScreen}
+        options={{
+          headerBackTitleStyle: { fontFamily: 'Calvin and Hobbes' },
+          headerRight: () => <AuthModal />,
+          title: 'calvin and hobbes',
+        }}
+        initialParams={{ 
+          stripData: [],
+          initialIndex: 0,
+          favoritesArray: [],
+          jumpToLastRead: true
+         }}
+      />
     </HomeStack.Navigator>
+  );
+}
+
+function SearchStackScreen() {
+  return (
+    <SearchStack.Navigator screenOptions={NavOptions}>
+      <SearchStack.Screen
+        name="Search"
+        component={SearchScreen}
+        options={{ headerRight: () => <AuthModal /> }}
+      />
+      <SearchStack.Screen
+        name="ComicDetails"
+        component={ComicDetailsScreen}
+        options={{
+          headerBackTitleStyle: { fontFamily: 'Calvin and Hobbes' },
+          headerRight: () => <AuthModal />,
+          title: 'calvin and hobbes',
+        }}
+      />
+    </SearchStack.Navigator>
   );
 }
 
 function FavoritesStackScreen() {
   return (
     <FavoritesStack.Navigator screenOptions={NavOptions}>
-      <FavoritesStack.Screen name="Favorites" component={FavoritesScreen} options={{headerRight: () => (<AuthModal />)}} />
-      <HomeStack.Screen name="ComicDetails" component={ComicDetailsScreen} options={{ title: 'calvin and hobbes' }} options={{headerBackTitleStyle:{fontFamily: 'Calvin and Hobbes'}, headerRight: () => (<AuthModal />)}} />
+      <FavoritesStack.Screen
+        name="Favorites"
+        component={FavoritesScreen}
+        options={{ headerRight: () => <AuthModal /> }}
+      />
+      <FavoritesStack.Screen
+        name="ComicDetails"
+        component={ComicDetailsScreen}
+        options={{
+          headerBackTitleStyle: { fontFamily: 'Calvin and Hobbes' },
+          headerRight: () => <AuthModal />,
+          title: 'calvin and hobbes',
+        }}
+      />
     </FavoritesStack.Navigator>
   );
 }
@@ -59,7 +110,11 @@ function FavoritesStackScreen() {
 function AboutStackScreen() {
   return (
     <AboutStack.Navigator screenOptions={NavOptions}>
-      <AboutStack.Screen name="About" component={AboutScreen} options={{headerRight: () => (<AuthModal />)}} />
+      <AboutStack.Screen
+        name="About"
+        component={AboutScreen}
+        options={{ headerRight: () => <AuthModal /> }}
+      />
     </AboutStack.Navigator>
   );
 }
@@ -81,6 +136,8 @@ const App = () => {
 
             if (route.name === 'Home') {
               iconName = focused ? eIcons.homeFocused : eIcons.home;
+            } else if (route.name === 'Search') {
+              iconName = focused ? eIcons.searchFocused : eIcons.search;
             } else if (route.name === 'Favorites') {
               iconName = focused ? eIcons.favoritesFocused : eIcons.favorites;
             } else if (route.name === 'About') {
@@ -94,6 +151,7 @@ const App = () => {
           },
         })}>
         <Tab.Screen name="Home" component={HomeStackScreen} />
+        <Tab.Screen name="Search" component={SearchStackScreen} />
         <Tab.Screen name="Favorites" component={FavoritesStackScreen} />
         <Tab.Screen name="About" component={AboutStackScreen} />
       </Tab.Navigator>

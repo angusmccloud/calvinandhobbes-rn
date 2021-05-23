@@ -1,27 +1,37 @@
 import React, { useState } from 'react';
-import { View, TouchableWithoutFeedback, Share } from 'react-native';
-import { Text, Icon } from 'components';
+import {
+  View,
+  TouchableWithoutFeedback,
+  Share,
+  Dimensions,
+} from 'react-native';
+import { useHeaderHeight } from '@react-navigation/stack';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
+import ImageZoom from 'react-native-image-pan-zoom';
 import FastImage from 'react-native-fast-image';
-import { iStrip, eIcons, iAuthStatus } from 'models';
+import { Text, Icon } from 'components';
+import { iStrip, eIcons, iAuthStatus, iDimensions } from 'models';
 import { Styles, Typography, Colors } from 'styles';
 import { AddFavorite, DeleteFavorite } from 'services';
 
 interface ComicDetailProps {
   item: iStrip;
-  dimensions: {
-    width: number;
-    height: number;
-    orientation: string;
-  };
+  dimensions: iDimensions;
   authStatus: iAuthStatus;
+  favoritesArray: any[];
+  setFavoritesArray: (newList: any[]) => void;
+  setScrollable: (scrollable: boolean) => void;
 }
 
 const ComicDetail = ({
   item,
   dimensions,
   authStatus,
+  favoritesArray,
+  setFavoritesArray,
+  setScrollable,
 }: ComicDetailProps): React.ReactElement => {
-  const [favorited, setFavorited] = useState(false);
+  const [favorited, setFavorited] = useState(favoritesArray.includes(item.id));
   const sharePress = async (item: iStrip) => {
     console.log('-- Share Press!! --');
     const content = {
@@ -53,14 +63,18 @@ const ComicDetail = ({
     }
   };
 
+  const headerHeight = useHeaderHeight();
+  const tabHeight = useBottomTabBarHeight();
+  const useableHeight = dimensions.height - headerHeight - tabHeight;
+
   let imgWidth =
     item.dimensions.width > dimensions.width * 0.9
       ? dimensions.width * 0.9
       : item.dimensions.width;
 
   let imgHeight =
-    item.dimensions.height > dimensions.height * 0.7
-      ? dimensions.height * 0.7
+    item.dimensions.height > (useableHeight - Typography.fontSizeXL) * .95
+      ? (useableHeight - Typography.fontSizeXL) * .95
       : item.dimensions.height;
 
   if (imgWidth / item.dimensions.width < imgHeight / item.dimensions.height) {
@@ -72,34 +86,56 @@ const ComicDetail = ({
   }
 
   const addRemoveFavorite = () => {
-    if(authStatus.isAuthed && !authStatus.authPending) {
-      if(favorited) {
+    if (authStatus.isAuthed && !authStatus.authPending) {
+      const newFavorites: any[] = [];
+      if (favorited) {
         DeleteFavorite(item.id);
+        for (let i = 0; i < favoritesArray.length; i++) {
+          if (favoritesArray[i] !== item.id) {
+            newFavorites.push(favoritesArray[i]);
+          }
+        }
       } else {
         AddFavorite(item.id);
+        for (let i = 0; i < favoritesArray.length; i++) {
+          newFavorites.push(favoritesArray[i]);
+        }
+        newFavorites.push(item.id);
       }
       setFavorited(!favorited);
+      setFavoritesArray(newFavorites);
     } else {
-      console.log("-- Need to Sign In --", authStatus);
+      console.log('-- Need to Sign In --', authStatus);
     }
-  }
+  };
 
   return (
-    <View style={[Styles.centerAll, { width: dimensions.width }]}>
-      <FastImage
-        source={{ uri: item.uri }}
-        style={{
-          width: imgWidth,
-          height: imgHeight,
-        }}
-        resizeMode="contain"
-      />
+    <View style={{ width: dimensions.width }}>
+      <ImageZoom
+        enableSwipeDown={true}
+        minScale={1}
+        useNativeDriver={true}
+        onMove={({ scale }) => { setScrollable(scale > .9 && scale < 1.1 ? true : false) }}
+        cropWidth={dimensions.width}
+        cropHeight={useableHeight}
+        imageWidth={imgWidth}
+        imageHeight={imgHeight + Typography.fontSizeXL}
+        >
+        <FastImage
+          source={{ uri: item.uri }}
+          style={{
+            width: imgWidth,
+            height: imgHeight,
+          }}
+          resizeMode="contain"
+        />
       <View
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
           width: imgWidth,
+          paddingTop: 6,
         }}>
         <TouchableWithoutFeedback onPress={() => addRemoveFavorite()}>
           <View>
@@ -110,17 +146,18 @@ const ComicDetail = ({
             />
           </View>
         </TouchableWithoutFeedback>
-        <Text size="L">{item.displayDate}</Text>
+        <Text size="M">{item.displayDate}</Text>
         <TouchableWithoutFeedback onPress={() => sharePress(item)}>
           <View>
             <Icon
               icon={eIcons.share}
               iconSize={Typography.fontSizeXL}
-              color={Colors.black}
+              color={Colors.calvinRed}
             />
           </View>
         </TouchableWithoutFeedback>
       </View>
+      </ImageZoom>
     </View>
   );
 };

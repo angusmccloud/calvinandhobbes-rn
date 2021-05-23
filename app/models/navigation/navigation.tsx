@@ -1,20 +1,33 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import { iStrip } from 'models';
 
-// Sample screen export that needs props: `Details: { itemId: number };`
-export type NavStackOneParamList = {
+export type NavStackHomeParamList = {
   Home: undefined;
   ComicDetails: {
     stripData: iStrip[];
-    clickedIndex: number;
+    initialIndex: number;
+    favoritesArray: any[];
+    jumpToLastRead: boolean;
   };
 };
 
-export type NavStackTwoParamList = {
+export type NavStackSearchParamList = {
+  Search: undefined;
+  ComicDetails: {
+    stripData: iStrip[];
+    initialIndex: number;
+    favoritesArray: any[];
+    jumpToLastRead: boolean;
+  };
+};
+
+export type NavStackFavoritesParamList = {
   Favorites: undefined;
   ComicDetails: {
     stripData: iStrip[];
-    clickedIndex: number;
+    initialIndex: number;
+    favoritesArray: any[];
+    jumpToLastRead: boolean;
   };
 };
 
@@ -23,4 +36,4 @@ export type NavStackAboutParamList = {
 };
 
 // This gets used as a type when a function needs the Navigation object passed to it
-export type BasicNavProp = StackNavigationProp<NavStackOneParamList>;
+export type BasicNavProp = StackNavigationProp<NavStackSearchParamList>;

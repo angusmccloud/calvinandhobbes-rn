@@ -12,17 +12,21 @@ import { calcDimensions, Typography, Colors } from 'styles';
 interface StripListProps {
   stripData: iStrip[];
   searchText: string;
+  favoritesArray: any[];
   setSearchText: (searchString: string) => void;
   submitSearch: () => void;
-  comicClickHandler: (clickedIndex: number) => void;
+  comicClickHandler: (initialIndex: number) => void;
+  showHearts: boolean;
 }
 
 const StripList = ({
   stripData,
   searchText,
+  favoritesArray,
   setSearchText,
   submitSearch,
   comicClickHandler,
+  showHearts,
 }: StripListProps): React.ReactElement => {
   const [dimensions, setDimensions] = useState(calcDimensions());
 
@@ -69,7 +73,7 @@ const StripList = ({
       <FlatList
         data={stripData}
         renderItem={({ item, index }) =>
-            <ListImage item={item} imageWidth={imageWidth} deviceWidth={dimensions.width} numColumns={numColumns} comicClickHandler={comicClickHandler} index={index} />
+            <ListImage item={item} imageWidth={imageWidth} deviceWidth={dimensions.width} numColumns={numColumns} comicClickHandler={comicClickHandler} index={index} favoritesArray={favoritesArray} showHearts={showHearts} />
         }
         keyExtractor={item => item.id}
         numColumns={numColumns}
