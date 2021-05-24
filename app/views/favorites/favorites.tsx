@@ -85,16 +85,14 @@ const FavoritesScreen = ({ route, navigation }: NavProps): React.ReactElement =>
   }
 
   return (
-    <SafeAreaView>
-      <View style={Styles.body}>
-        {dataLoading && (
-          <ActivityIndicator size={40} />
-        )}
-        {!dataLoading && (
-          <StripList stripData={filteredStripData} setSearchText={searchTextUpdate} favoritesArray={favoritesArray} searchText={searchText} submitSearch={submitSearch} comicClickHandler={comicClickHandler} showHearts={false} />
-        )}
-      </View>
-    </SafeAreaView>
+    <View style={Styles.body}>
+      {dataLoading && (
+        <ActivityIndicator size={40} />
+      )}
+      {!dataLoading && (
+        <StripList stripData={filteredStripData} setSearchText={searchTextUpdate} favoritesArray={favoritesArray} searchText={searchText} submitSearch={submitSearch} comicClickHandler={comicClickHandler} showHearts={false} />
+      )}
+    </View>
   );
 };
 
