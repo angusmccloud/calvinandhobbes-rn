@@ -3,7 +3,7 @@ import { View, TouchableWithoutFeedback, TextInput, ScrollView } from 'react-nat
 import * as Keychain from 'react-native-keychain';
 import { Auth } from 'aws-amplify';
 import Modal from 'react-native-modal';
-import { iStrip, BasicNavProp, eIcons, iAuthStatus } from 'models';
+import { eIcons, iAuthStatus } from 'models';
 import { Colors, Styles, Typography, calcDimensions } from 'styles';
 import { Icon, Text, Button, ActivityIndicator } from 'components';
 import { checkAuthStatus } from 'utils';

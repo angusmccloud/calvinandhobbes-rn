@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { baseUrl } from 'environment';
-import { checkAuthStatus } from 'utils';
+// import { checkAuthStatus } from 'utils';
+import { iAuthStatus } from 'models';
 
-const DeleteFavorite = async (comicId: string): Promise<void> => {
+const DeleteFavorite = async (comicId: string, authStatus: iAuthStatus): Promise<void> => {
   console.log('-- Deleting a Favorite --', comicId);
-  const authStatus = await checkAuthStatus();
+  // const authStatus = await checkAuthStatus();
   if (
     authStatus.isAuthed &&
     !authStatus.authPending &&

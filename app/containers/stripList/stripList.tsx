@@ -8,6 +8,7 @@ import {
 import { ListImage } from 'containers';
 import { iStrip } from 'models'; 
 import { calcDimensions, Typography, Colors } from 'styles';
+import { ActivityIndicator } from 'components';
 
 interface StripListProps {
   stripData: iStrip[];
@@ -17,6 +18,7 @@ interface StripListProps {
   submitSearch: () => void;
   comicClickHandler: (initialIndex: number) => void;
   showHearts: boolean;
+  dataLoading: boolean;
 }
 
 const StripList = ({
@@ -27,6 +29,7 @@ const StripList = ({
   submitSearch,
   comicClickHandler,
   showHearts,
+  dataLoading,
 }: StripListProps): React.ReactElement => {
   const [dimensions, setDimensions] = useState(calcDimensions());
 
@@ -70,15 +73,20 @@ const StripList = ({
           onSubmitEditing={() => submitSearch()}
         />
       </View>
-      <FlatList
-        data={stripData}
-        renderItem={({ item, index }) =>
-            <ListImage item={item} imageWidth={imageWidth} deviceWidth={dimensions.width} numColumns={numColumns} comicClickHandler={comicClickHandler} index={index} favoritesArray={favoritesArray} showHearts={showHearts} />
-        }
-        keyExtractor={item => item.id}
-        numColumns={numColumns}
-        key={numColumns}
-      />
+      {dataLoading && (
+        <ActivityIndicator size={40} />
+      )}
+      {!dataLoading && (
+        <FlatList
+          data={stripData}
+          renderItem={({ item, index }) =>
+              <ListImage item={item} imageWidth={imageWidth} deviceWidth={dimensions.width} numColumns={numColumns} comicClickHandler={comicClickHandler} index={index} favoritesArray={favoritesArray} showHearts={showHearts} />
+          }
+          keyExtractor={item => item.id}
+          numColumns={numColumns}
+          key={numColumns}
+        />
+      )}
     </>
   );
 };

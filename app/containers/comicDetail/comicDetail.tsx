@@ -3,7 +3,7 @@ import {
   View,
   TouchableWithoutFeedback,
   Share,
-  Dimensions,
+  Alert,
 } from 'react-native';
 import { useHeaderHeight } from '@react-navigation/stack';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
@@ -11,8 +11,9 @@ import ImageZoom from 'react-native-image-pan-zoom';
 import FastImage from 'react-native-fast-image';
 import { Text, Icon } from 'components';
 import { iStrip, eIcons, iAuthStatus, iDimensions } from 'models';
-import { Styles, Typography, Colors } from 'styles';
+import { Typography, Colors } from 'styles';
 import { AddFavorite, DeleteFavorite } from 'services';
+import { checkAuthStatus } from 'utils';
 
 interface ComicDetailProps {
   item: iStrip;
@@ -85,29 +86,51 @@ const ComicDetail = ({
     imgWidth = item.dimensions.width * (imgHeight / item.dimensions.height);
   }
 
-  const addRemoveFavorite = () => {
+  const addRemoveFavorite = async () => {
     if (authStatus.isAuthed && !authStatus.authPending) {
-      const newFavorites: any[] = [];
-      if (favorited) {
-        DeleteFavorite(item.id);
-        for (let i = 0; i < favoritesArray.length; i++) {
-          if (favoritesArray[i] !== item.id) {
-            newFavorites.push(favoritesArray[i]);
-          }
-        }
-      } else {
-        AddFavorite(item.id);
-        for (let i = 0; i < favoritesArray.length; i++) {
-          newFavorites.push(favoritesArray[i]);
-        }
-        newFavorites.push(item.id);
-      }
-      setFavorited(!favorited);
-      setFavoritesArray(newFavorites);
+      processAddRemoveFavorite(authStatus);
     } else {
-      console.log('-- Need to Sign In --', authStatus);
+      const updatedAuth = await checkAuthStatus();
+      if (updatedAuth.isAuthed && !updatedAuth.authPending) {
+        // Weird check for "user signed in after page loaded"
+        // Ugly solution, just need something here quickly
+        // ...Sorry future connor
+        processAddRemoveFavorite(updatedAuth);
+      } else {
+        Alert.alert(
+          'Not Signing In',
+          'You must sign in to track your favorites, which are then tracked across devices.',
+          [
+            {
+              text: 'Ok',
+              style: 'default'
+            }
+          ]
+        );
+        // console.log('-- Need to Sign In --', authStatus);
+      }
     }
   };
+
+  const processAddRemoveFavorite = (authStatus: iAuthStatus) => {
+    const newFavorites: any[] = [];
+    if (favorited) {
+      DeleteFavorite(item.id, authStatus);
+      for (let i = 0; i < favoritesArray.length; i++) {
+        if (favoritesArray[i] !== item.id) {
+          newFavorites.push(favoritesArray[i]);
+        }
+      }
+    } else {
+      AddFavorite(item.id, authStatus);
+      for (let i = 0; i < favoritesArray.length; i++) {
+        newFavorites.push(favoritesArray[i]);
+      }
+      newFavorites.push(item.id);
+    }
+    setFavorited(!favorited);
+    setFavoritesArray(newFavorites);
+  }
 
   return (
     <View style={{ width: dimensions.width }}>

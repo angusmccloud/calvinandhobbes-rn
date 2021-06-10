@@ -1,18 +1,22 @@
 import React, {useState} from 'react';
-import { SafeAreaView, View } from 'react-native';
+import { View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { useFocusEffect } from '@react-navigation/native';
 import { NavStackFavoritesParamList, iStrip } from 'models';
-import { ActivityIndicator } from 'components';
+import { Text } from 'components';
 import { StripList } from 'containers';
 import { Styles } from 'styles';
 import { GetFavorites, GetStripDetails } from  'services';
+import { iAuthStatus } from 'models';
+import { checkAuthStatus } from 'utils';
 
 type NavProps = StackScreenProps<NavStackFavoritesParamList, 'Favorites'>;
 
 const FavoritesScreen = ({ route, navigation }: NavProps): React.ReactElement => {
   const emptyStrips: iStrip[] = [];
   const emptyArray: any[] = [];
+  const emptyAuth: iAuthStatus = { isAuthed: false, authPending: true };
+  const [authStatus, setAuthStatus] = useState(emptyAuth);
   const [dataLoading, setDataLoading] = useState(true);
   const [stripData, setStripData] = useState(emptyStrips);
   const [filteredStripData, setFilteredStripData] = useState(emptyStrips);
@@ -25,11 +29,18 @@ const FavoritesScreen = ({ route, navigation }: NavProps): React.ReactElement =>
     }, []),
   );
 
+  const checkAuth = async () => {
+    const auth = await checkAuthStatus();
+    // console.log('-- Checked Auth --', auth);
+    setAuthStatus(auth);
+  };
+
   const loadData = async () => {
+    await checkAuth();
     setDataLoading(true);
     setSearchText('');
     const stripsPromise = GetStripDetails();
-    const favoritesPromise = GetFavorites();
+    const favoritesPromise = GetFavorites(authStatus);
     const allStrips = await stripsPromise;
     const favoritesList = await favoritesPromise;
 
@@ -86,11 +97,23 @@ const FavoritesScreen = ({ route, navigation }: NavProps): React.ReactElement =>
 
   return (
     <View style={Styles.body}>
-      {dataLoading && (
-        <ActivityIndicator size={40} />
+      <StripList stripData={filteredStripData} setSearchText={searchTextUpdate} favoritesArray={favoritesArray} searchText={searchText} submitSearch={submitSearch} comicClickHandler={comicClickHandler} showHearts={false} dataLoading={dataLoading} />
+      {!dataLoading && (!authStatus.isAuthed || authStatus.authPending) && (
+        <View style={{flex: 1, alignItems: 'center'}}>
+          <Text size='L'>
+            You must sign in to favorite comics.
+          </Text>
+        </View>
       )}
-      {!dataLoading && (
-        <StripList stripData={filteredStripData} setSearchText={searchTextUpdate} favoritesArray={favoritesArray} searchText={searchText} submitSearch={submitSearch} comicClickHandler={comicClickHandler} showHearts={false} />
+      {!dataLoading && authStatus.isAuthed && !authStatus.authPending && filteredStripData.length === 0 && (
+        <View style={{flex: 1, alignItems: 'center'}}>
+          <Text size='L'>
+            {searchText === '' ? 
+              'You haven\'t favorited any comics yet! Press the Heart on any comic to track it here.'
+            : 'No favorited comics match those search terms'
+            }
+          </Text>
+        </View>
       )}
     </View>
   );

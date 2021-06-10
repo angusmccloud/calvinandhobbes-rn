@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { baseUrl } from 'environment';
-import { checkAuthStatus } from 'utils';
+// import { checkAuthStatus } from 'utils';
+import { iAuthStatus } from 'models';
 
-const GetFavorites = async (): Promise<any[]> => {
+const GetFavorites = async (authStatus: iAuthStatus): Promise<any[]> => {
   console.log('-- Getting List of Favorites --');
-  const authStatus = await checkAuthStatus();
+  // const authStatus = await checkAuthStatus();
   let comics: any[] = [];
   if (
     authStatus.isAuthed &&
@@ -31,7 +32,7 @@ const GetFavorites = async (): Promise<any[]> => {
       return comics;
     }
   }
-  console.log('-- Not Logged In --');
+  // console.log('-- Not Logged In --');
   return comics;
 };
 

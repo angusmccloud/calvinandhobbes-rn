@@ -31,17 +31,17 @@ const ComicDetailsScreen = ({
 
   useFocusEffect(
     React.useCallback(() => {
-      checkAuth();
       loadData();
     }, []),
   );
 
   const loadData = async () => {
+    await checkAuth();
     // Only runs when you're on the Home Screen
     if (jumpToLastRead) {
       setDataLoading(true);
       const stripsPromise = GetStripDetails();
-      const favoritesPromise = GetFavorites();
+      const favoritesPromise = GetFavorites(authStatus);
       const allStrips = await stripsPromise;
       const favoritesList = await favoritesPromise;
 

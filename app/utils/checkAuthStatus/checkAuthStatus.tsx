@@ -3,10 +3,11 @@ import { Auth } from 'aws-amplify';
 import { iAuthStatus } from 'models';
 
 const checkAuthStatus = async (): Promise<iAuthStatus> => {
-    const unauthedReturn: iAuthStatus = {
-        isAuthed: false,
-        authPending: false,
-    };
+  console.log('-- Running checkAuthStatus --');
+  const unauthedReturn: iAuthStatus = {
+    isAuthed: false,
+    authPending: false,
+  };
   try {
     const credentials = await Keychain.getInternetCredentials('auth');
     // console.log('---- credentials ----', credentials);
@@ -14,7 +15,7 @@ const checkAuthStatus = async (): Promise<iAuthStatus> => {
     if (credentials) {
       const { username, password } = credentials;
       const user = await Auth.signIn(username, password);
-      console.log('-- User already logged in, forward them!');
+      console.log('-- User already logged in, send back credentials!');
       const authedUserObject: iAuthStatus = {
         isAuthed: true,
         authPending: false,
@@ -36,13 +37,14 @@ const checkAuthStatus = async (): Promise<iAuthStatus> => {
     }
   } catch (err) {
     console.log('error', err); // eslint-disable-line
-    if(err.code === 'UserNotConfirmedException') {
+    if (err.code === 'UserNotConfirmedException') {
       const authPending: iAuthStatus = {
         isAuthed: false,
         authPending: true,
       };
       return authPending;
     } else {
+      console.log('-- Default Unauthed Return --', err);
       return unauthedReturn;
     }
   }
