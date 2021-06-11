@@ -36,12 +36,13 @@ const ComicDetailsScreen = ({
   );
 
   const loadData = async () => {
-    await checkAuth();
+    const auth = await checkAuthStatus();
+    setAuthStatus(auth);
     // Only runs when you're on the Home Screen
     if (jumpToLastRead) {
       setDataLoading(true);
       const stripsPromise = GetStripDetails();
-      const favoritesPromise = GetFavorites(authStatus);
+      const favoritesPromise = GetFavorites(auth);
       const allStrips = await stripsPromise;
       const favoritesList = await favoritesPromise;
 
@@ -69,12 +70,6 @@ const ComicDetailsScreen = ({
   const loadLastIndex = async () => {
     const last = await getLastReadIndex();
     setCurrentIndex(last);
-  };
-
-  const checkAuth = async () => {
-    const auth = await checkAuthStatus();
-    // console.log('-- Checked Auth --', auth);
-    setAuthStatus(auth);
   };
 
   Dimensions.addEventListener('change', () => {

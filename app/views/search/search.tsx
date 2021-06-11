@@ -24,17 +24,12 @@ const SearchScreen = ({ route, navigation }: NavProps): React.ReactElement => {
     loadData();
   }, []);
 
-  const checkAuth = async () => {
-    const auth = await checkAuthStatus();
-    // console.log('-- Checked Auth --', auth);
-    setAuthStatus(auth);
-  };
-
   const loadData = async () => {
     setDataLoading(true);
-    await checkAuth();
+    const auth = await checkAuthStatus();
+    setAuthStatus(auth);
     const stripsPromise = GetStripDetails();
-    const favoritesPromise = GetFavorites(authStatus);
+    const favoritesPromise = GetFavorites(auth);
     const allStrips = await stripsPromise;
     const favoritesList = await favoritesPromise;
 
