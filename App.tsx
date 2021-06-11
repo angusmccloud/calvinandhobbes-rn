@@ -153,7 +153,7 @@ const App = () => {
         <Tab.Screen name="Home" component={HomeStackScreen} />
         <Tab.Screen name="Search" component={SearchStackScreen} />
         <Tab.Screen name="Favorites" component={FavoritesStackScreen} />
-        <Tab.Screen name="About" component={AboutStackScreen} />
+        {/* <Tab.Screen name="About" component={AboutStackScreen} /> */}
       </Tab.Navigator>
     </NavigationContainer>
   );
