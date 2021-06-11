@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.codechallenge2021"
+        applicationId "com.calvinandhobbes"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
