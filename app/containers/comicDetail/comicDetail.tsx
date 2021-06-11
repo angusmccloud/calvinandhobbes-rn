@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import {
-  View,
-  TouchableWithoutFeedback,
-  Share,
-  Alert,
-} from 'react-native';
+import { View, TouchableWithoutFeedback, Alert } from 'react-native';
+import Share from 'react-native-share';
+import RNFS from 'react-native-fs';
 import { useHeaderHeight } from '@react-navigation/stack';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import ImageZoom from 'react-native-image-pan-zoom';
 import FastImage from 'react-native-fast-image';
-import { Text, Icon } from 'components';
+import { Text, Icon, ActivityIndicator } from 'components';
 import { iStrip, eIcons, iAuthStatus, iDimensions } from 'models';
 import { Typography, Colors } from 'styles';
 import { AddFavorite, DeleteFavorite } from 'services';
@@ -33,35 +30,43 @@ const ComicDetail = ({
   setScrollable,
 }: ComicDetailProps): React.ReactElement => {
   const [favorited, setFavorited] = useState(favoritesArray.includes(item.id));
-  const sharePress = async (item: iStrip) => {
-    console.log('-- Share Press!! --');
-    const content = {
-      message: `Check out this Calvin and Hobbes from ${item.displayDate}!`,
-      url: item.uri,
-      title: `Calvin & Hobbes | ${item.displayDate}`,
-    };
-    const options = {
-      dialogTitle: `Calvin & Hobbes | ${item.displayDate}`,
-      subject: 'Check out this Calvin and Hobbes',
-    };
+  const [shareBase64Calculating, setShareBase64Calculating] = useState(false);
 
-    try {
-      const result = await Share.share(content, options);
-      if (result.action === Share.sharedAction) {
-        if (result.activityType) {
-          console.log('Shared with', result.activityType);
-          // shared with activity type of result.activityType
-        } else {
-          console.log('shared');
-          // shared
-        }
-      } else if (result.action === Share.dismissedAction) {
-        console.log('dismissed');
-        // dismissed
-      }
-    } catch (error) {
-      console.log(error.message);
-    }
+  const sharePress = async (item: iStrip) => {
+    setShareBase64Calculating(true);
+    console.log('-- Share Press!! --');
+
+    const imageName = /[^/]*$/.exec(item.uri)[0];
+
+    const path = `${RNFS.DocumentDirectoryPath}/${imageName}`;
+    await RNFS.downloadFile({ fromUrl: item.uri, toFile: `file://${path}` })
+      .promise.then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        console.log('-- ERROR in RNFS --', err);
+        return err;
+      });
+    RNFS.readFile(`file://${path}`, 'base64').then((res) => {
+      let shareOptionsUrl = {
+        title: 'Calvin & Hobbes',
+        message: `Check out this Calvin and Hobbes from ${item.displayDate}`,
+        url: `data:image/jpeg;base64,${res}`, // use image/jpeg instead of image/jpg
+        subject: 'Check out this Calvin and Hobbes',
+        excludedActivityTypes: [
+          'com.apple.UIKit.activity.SaveToCameraRoll',
+          'com.apple.UIKit.activity.AssignToContact',
+        ]
+      };
+      Share.open(shareOptionsUrl)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          err && console.log(err);
+        });
+      setShareBase64Calculating(false);
+    });
   };
 
   const headerHeight = useHeaderHeight();
@@ -74,8 +79,8 @@ const ComicDetail = ({
       : item.dimensions.width;
 
   let imgHeight =
-    item.dimensions.height > (useableHeight - Typography.fontSizeXL) * .95
-      ? (useableHeight - Typography.fontSizeXL) * .95
+    item.dimensions.height > (useableHeight - Typography.fontSizeXL) * 0.95
+      ? (useableHeight - Typography.fontSizeXL) * 0.95
       : item.dimensions.height;
 
   if (imgWidth / item.dimensions.width < imgHeight / item.dimensions.height) {
@@ -103,9 +108,9 @@ const ComicDetail = ({
           [
             {
               text: 'Ok',
-              style: 'default'
-            }
-          ]
+              style: 'default',
+            },
+          ],
         );
         // console.log('-- Need to Sign In --', authStatus);
       }
@@ -130,7 +135,7 @@ const ComicDetail = ({
     }
     setFavorited(!favorited);
     setFavoritesArray(newFavorites);
-  }
+  };
 
   return (
     <View style={{ width: dimensions.width }}>
@@ -138,12 +143,13 @@ const ComicDetail = ({
         enableSwipeDown={true}
         minScale={1}
         useNativeDriver={true}
-        onMove={({ scale }) => { setScrollable(scale > .9 && scale < 1.1 ? true : false) }}
+        onMove={({ scale }) => {
+          setScrollable(scale > 0.9 && scale < 1.1 ? true : false);
+        }}
         cropWidth={dimensions.width}
         cropHeight={useableHeight}
         imageWidth={imgWidth}
-        imageHeight={imgHeight + Typography.fontSizeXL}
-        >
+        imageHeight={imgHeight + Typography.fontSizeXL}>
         <FastImage
           source={{ uri: item.uri }}
           style={{
@@ -152,34 +158,41 @@ const ComicDetail = ({
           }}
           resizeMode="contain"
         />
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          width: imgWidth,
-          paddingTop: 6,
-        }}>
-        <TouchableWithoutFeedback onPress={() => addRemoveFavorite()}>
-          <View>
-            <Icon
-              icon={favorited ? eIcons.favoritesFocused : eIcons.favorites}
-              iconSize={Typography.fontSizeXL}
-              color={Colors.calvinRed}
-            />
-          </View>
-        </TouchableWithoutFeedback>
-        <Text size="M">{item.displayDate}</Text>
-        <TouchableWithoutFeedback onPress={() => sharePress(item)}>
-          <View>
-            <Icon
-              icon={eIcons.share}
-              iconSize={Typography.fontSizeXL}
-              color={Colors.calvinRed}
-            />
-          </View>
-        </TouchableWithoutFeedback>
-      </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            width: imgWidth,
+            paddingTop: 6,
+          }}>
+          <TouchableWithoutFeedback onPress={() => addRemoveFavorite()}>
+            <View>
+              <Icon
+                icon={favorited ? eIcons.favoritesFocused : eIcons.favorites}
+                iconSize={Typography.fontSizeXL}
+                color={Colors.calvinRed}
+              />
+            </View>
+          </TouchableWithoutFeedback>
+          <Text size="M">{item.displayDate}</Text>
+          {shareBase64Calculating && (
+            <View>
+              <ActivityIndicator size={Typography.fontSizeXL} />
+            </View>
+          )}
+          {!shareBase64Calculating && (
+            <TouchableWithoutFeedback onPress={() => sharePress(item)}>
+              <View>
+                <Icon
+                  icon={eIcons.share}
+                  iconSize={Typography.fontSizeXL}
+                  color={Colors.calvinRed}
+                />
+              </View>
+            </TouchableWithoutFeedback>
+          )}
+        </View>
       </ImageZoom>
     </View>
   );
