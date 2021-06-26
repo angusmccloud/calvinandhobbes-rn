@@ -31,6 +31,8 @@ const NavOptions: StackNavigationOptions = {
     borderBottomWidth: 0,
     borderBottomColor: Colors.calvinRed,
     shadowOffset: { height: 0, width: 0 },
+    shadowRadius: 0,
+    shadowColor: 'transparent'
   },
   headerTitleContainerStyle: {
     alignItems: 'center'
@@ -40,7 +42,6 @@ const NavOptions: StackNavigationOptions = {
     fontSize: Typography.fontSizeXL,
     fontWeight: '600',
     fontFamily: 'Calvin and Hobbes',
-
   },
 };
 
