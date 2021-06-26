@@ -38,8 +38,9 @@ const NavOptions: StackNavigationOptions = {
   headerTintColor: Colors.white,
   headerTitleStyle: {
     fontSize: Typography.fontSizeXL,
-    fontWeight: Typography.fontWeightBold,
+    fontWeight: '600',
     fontFamily: 'Calvin and Hobbes',
+
   },
 };
 
