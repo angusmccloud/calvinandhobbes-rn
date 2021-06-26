@@ -138,8 +138,8 @@ const ComicDetail = ({
   };
 
   return (
-    <View style={{ width: dimensions.width }}>
-      <ImageZoom
+    <View style={{ width: dimensions.width, justifyContent: 'center', alignItems: 'center' }}>
+      {/* <ImageZoom
         enableSwipeDown={true}
         minScale={1}
         useNativeDriver={true}
@@ -149,7 +149,7 @@ const ComicDetail = ({
         cropWidth={dimensions.width}
         cropHeight={useableHeight}
         imageWidth={imgWidth}
-        imageHeight={imgHeight + Typography.fontSizeXL + 6}>
+        imageHeight={imgHeight + Typography.fontSizeXL + 6}> */}
         <FastImage
           source={{ uri: item.uri }}
           style={{
@@ -193,7 +193,7 @@ const ComicDetail = ({
             </TouchableWithoutFeedback>
           )}
         </View>
-      </ImageZoom>
+      {/* </ImageZoom> */}
     </View>
   );
 };

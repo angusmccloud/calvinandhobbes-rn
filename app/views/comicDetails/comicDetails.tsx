@@ -110,15 +110,14 @@ const ComicDetailsScreen = ({
   }
 
   return (
-    // <SafeAreaView>
-    <SafeAreaView style={Styles.body}>      
+    <SafeAreaView style={Styles.body}>
       {dataLoading && <ActivityIndicator size={40} />}
       {!dataLoading && (
         <>
           <CalendarModal showModal={showCalendarModal} setShowModal={setShowCalendarModal} currentDate={calendarCurrentDate} minDate={calendarMinDate} maxDate={calendarMaxDate} setSelectedDate={setSeclectedDate} />
           <FlatList
             key={`${dimensions.orientation}-${jumpTime.toString()}`}
-            scrollEnabled={scrollable}
+            // scrollEnabled={scrollable}
             data={stripData}
             horizontal={true}
             initialNumToRender={5}
@@ -145,7 +144,6 @@ const ComicDetailsScreen = ({
           />
         </>
       )}
-    {/* </View> */}
     </SafeAreaView>
   );
 };
