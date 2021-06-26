@@ -32,7 +32,8 @@ const NavOptions: StackNavigationOptions = {
     borderBottomColor: Colors.calvinRed,
     shadowOffset: { height: 0, width: 0 },
     shadowRadius: 0,
-    shadowColor: 'transparent'
+    shadowColor: 'transparent',
+    elevation: 0,
   },
   headerTitleContainerStyle: {
     alignItems: 'center'
