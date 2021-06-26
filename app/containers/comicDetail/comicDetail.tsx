@@ -71,7 +71,7 @@ const ComicDetail = ({
 
   const headerHeight = useHeaderHeight();
   const tabHeight = useBottomTabBarHeight();
-  const useableHeight = dimensions.height - headerHeight - tabHeight;
+  const useableHeight = dimensions.visibileHeight - headerHeight - tabHeight;
 
   let imgWidth =
     item.dimensions.width > dimensions.width * 0.9
@@ -149,7 +149,7 @@ const ComicDetail = ({
         cropWidth={dimensions.width}
         cropHeight={useableHeight}
         imageWidth={imgWidth}
-        imageHeight={imgHeight + Typography.fontSizeXL}>
+        imageHeight={imgHeight + Typography.fontSizeXL + 6}>
         <FastImage
           source={{ uri: item.uri }}
           style={{
@@ -164,7 +164,7 @@ const ComicDetail = ({
             justifyContent: 'space-between',
             alignItems: 'center',
             width: imgWidth,
-            paddingTop: 6,
+            marginTop: 6,
           }}>
           <TouchableWithoutFeedback onPress={() => addRemoveFavorite()}>
             <View>

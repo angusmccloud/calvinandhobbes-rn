@@ -4,7 +4,8 @@ import { iDimensions } from 'models';
 
 const calcDimensions = (): iDimensions => {
     const statusBarHeight = getStatusBarHeight(false);
-    const dim = Dimensions.get('screen');
+    // const dim = Dimensions.get('screen');
+    const dim = Dimensions.get('window');
     const width = dim.width;
     const height = dim.height;
     const visibileHeight = height - statusBarHeight;

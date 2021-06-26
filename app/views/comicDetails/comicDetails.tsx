@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { View, FlatList, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { useFocusEffect } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Styles, calcDimensions, Colors, Typography } from 'styles';
 import { NavStackSearchParamList, iAuthStatus, eIcons } from 'models';
 import { ComicDetail, CalendarModal } from 'containers';
@@ -109,7 +110,8 @@ const ComicDetailsScreen = ({
   }
 
   return (
-    <View style={Styles.body}>      
+    // <SafeAreaView>
+    <SafeAreaView style={Styles.body}>      
       {dataLoading && <ActivityIndicator size={40} />}
       {!dataLoading && (
         <>
@@ -143,7 +145,8 @@ const ComicDetailsScreen = ({
           />
         </>
       )}
-    </View>
+    {/* </View> */}
+    </SafeAreaView>
   );
 };
 
