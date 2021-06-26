@@ -49,6 +49,7 @@ const StripList = ({
           paddingBottom: 10,
           alignItems: 'center',
           justifyContent: 'center',
+          borderTopWidth: 0,
         }}>
         <TextInput
           autoCapitalize="sentences"

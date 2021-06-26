@@ -29,7 +29,11 @@ const NavOptions: StackNavigationOptions = {
   headerStyle: {
     backgroundColor: Colors.calvinRed,
     borderBottomWidth: 0,
+    borderBottomColor: Colors.calvinRed,
     shadowOffset: { height: 0, width: 0 },
+  },
+  headerTitleContainerStyle: {
+    alignItems: 'center'
   },
   headerTintColor: Colors.white,
   headerTitleStyle: {

@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import { View, Dimensions } from 'react-native';
+import { View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { useFocusEffect } from '@react-navigation/native';
 import { NavStackFavoritesParamList, iStrip } from 'models';
 import { Text } from 'components';
 import { StripList } from 'containers';
-import { Styles, calcDimensions } from 'styles';
+import { Styles } from 'styles';
 import { GetFavorites, GetStripDetails } from  'services';
 import { iAuthStatus } from 'models';
 import { checkAuthStatus } from 'utils';
@@ -22,9 +22,6 @@ const FavoritesScreen = ({ route, navigation }: NavProps): React.ReactElement =>
   const [filteredStripData, setFilteredStripData] = useState(emptyStrips);
   const [favoritesArray, setFavoritesArray] = useState(emptyArray);
   const [searchText, setSearchText] = useState('');
-
-  const window = Dimensions.get('window');
-  const screen = Dimensions.get('screen');
 
   useFocusEffect(
     React.useCallback(() => {
@@ -100,15 +97,6 @@ const FavoritesScreen = ({ route, navigation }: NavProps): React.ReactElement =>
         <View style={{flex: 1, alignItems: 'center'}}>
           <Text size='L'>
             You must sign in to favorite comics.
-          </Text>
-          <Text size='S'>
-            Window: {JSON.stringify(window)}
-          </Text>
-          <Text size='S'>
-            Screen: {JSON.stringify(screen)}
-          </Text>
-          <Text size='S'>
-            Calc Dimensions: {JSON.stringify(calcDimensions())}
           </Text>
         </View>
       )}

@@ -55,7 +55,7 @@ const CalendarModal = ({
         coverScreen={true}
         propagateSwipe={true}
         backdropColor={Colors.black}
-        deviceHeight={dimensions.height}
+        deviceHeight={dimensions.visibileHeight}
         deviceWidth={dimensions.width}
         isVisible={showModal}
         onBackdropPress={() => {
